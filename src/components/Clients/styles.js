@@ -25,15 +25,19 @@ export const Slider = styled.div`
   justify-content: center;
 
   h1 {
+    font-size: 36px;
+    line-height: 40px;
     text-align: center;
     margin-bottom: 50px;
+    font-family: 'DINAlternateBlack';
+    color: #355264;
   }
 
   .slider-rows {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 50px;
+    gap: 100px;
   }
 
   .upper-row, .lower-row {

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const Container = styled.main`
+export const Container = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
@@ -21,7 +21,6 @@ export const Content = styled.div`
     justify-content: center;
     align-items: center;
     height: 800px;
-    width: 100vw;
 
     .geoform {
       position: absolute;

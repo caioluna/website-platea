@@ -3,8 +3,9 @@ import { GlobalStyle } from './styles/global';
 import Header from './components/Header';
 
 import Home from './pages/Home/index';
-import Agency from './pages/Agency';
-import Clients from './pages/Clients';
+import Agency from './components/Agency';
+import Clients from './components/Clients';
+import Services from './components/Services';
 
 import Footer from './components/Footer';
 
@@ -14,10 +15,15 @@ export default function App() {
 	return (
 		<>
 			<GlobalStyle />
+
 			<Header />
+
 			<Home />
 			<Agency />
 			<Clients />
+			<Services />
+
+			<Footer />
 		</>
 	);
 }
