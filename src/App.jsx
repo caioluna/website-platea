@@ -10,8 +10,7 @@ import Footer from './components/Footer';
 import PageNotFound from './components/Footer';
 
 import { Switch, Route } from 'react-router-dom';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence } from 'framer-motion';
 
 export default function App() {
 	return (
