@@ -1,26 +1,30 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-export const Container = styled.div`
+export const Container = styled(motion.main)`
   position: relative;
   display: flex;
+  flex-direction: column;
+
   justify-content: center;
+  align-items: center;
 
   width: 100vw;
 `
 
-export const Content = styled.div`
+export const Content = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 
   width: 1040px;
+  height: 100vh;
 
   .hero {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 800px;
 
     .geoform {
       position: absolute;

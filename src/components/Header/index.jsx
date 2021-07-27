@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { NavLink } from 'react-router-dom';
 import { Container, Content, Nav } from './styles';
 
 import plateaLogoWhite from '../../assets/platea-logo-white.svg';
@@ -9,18 +9,20 @@ export default function Header() {
 		<Container>
 			<Content>
 				<div className='logo'>
-					<img src={plateaLogoWhite} alt='Platea Logo' />
+					<NavLink to='/'>
+						<img src={plateaLogoWhite} alt='Platea Logo' />
+					</NavLink>
 				</div>
 				<Nav>
 					<ul>
 						<li>
-							<a href='!#'>Agência</a>
+							<NavLink to='/'>Home</NavLink>
 						</li>
 						<li>
-							<a href='!#'>Cases</a>
+							<NavLink to='/cases'>Cases</NavLink>
 						</li>
 						<li>
-							<a href='!#'>Contato</a>
+							<NavLink to=''>Contato</NavLink>
 						</li>
 					</ul>
 				</Nav>

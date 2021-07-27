@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 import { Container, Content, Links, Logo, Address } from './styles';
 
 import plateaLogo from '../../assets/platea-logo-dark.svg';
@@ -16,13 +16,15 @@ export default function Footer() {
 			</div>
 			<Content>
 				<Logo>
-					<img src={plateaLogo} alt='Logo Platea' />
+					<Link to='/'>
+						<img src={plateaLogo} alt='Logo Platea' />
+					</Link>
 					<p>
 						Vem criar com a gente!
 						<br />
 						Faça o seu projeto com a Platea.
 					</p>
-					<a href=''>
+					<a href='https://www.instagram.com/platea.promo/' target='_blank'>
 						<span className='instagram-icon'></span>
 					</a>
 				</Logo>
@@ -32,16 +34,13 @@ export default function Footer() {
 						<h3>Mapa do site</h3>
 						<ul>
 							<li>
-								<a href=''>A agência</a>
+								<Link to='/'>Home</Link>
 							</li>
 							<li>
-								<a href=''>Serviços</a>
+								<Link to='/cases'>Cases</Link>
 							</li>
 							<li>
-								<a href=''>Cases</a>
-							</li>
-							<li>
-								<a href=''>Contato</a>
+								<Link to=''>Contato</Link>
 							</li>
 						</ul>
 					</div>
@@ -50,13 +49,13 @@ export default function Footer() {
 						<h3>Nossos serviços</h3>
 						<ul>
 							<li>
-								<a href=''>Press kits</a>
+								<Link to=''>Press kits</Link>
 							</li>
 							<li>
-								<a href=''>Brindes</a>
+								<Link to=''>Brindes</Link>
 							</li>
 							<li>
-								<a href=''>Design Gráfico</a>
+								<Link to=''>Design Gráfico</Link>
 							</li>
 						</ul>
 					</div>

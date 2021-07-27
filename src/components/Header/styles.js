@@ -1,10 +1,14 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.header`
+  position: fixed;
   display: flex;
   justify-content: center;
+  align-items: center;
   width: 100vw;
-  height: 80px;
+  height: 60px;
+  z-index: 9999;
+  background-color: #1C3C50;
 `
 export const Content = styled.div`
   max-width: 1040px;
@@ -12,6 +16,19 @@ export const Content = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  .logo {
+    display: flex;
+    align-items: center;
+
+    a {
+      display: flex;
+      
+      img {
+        height: 30px;
+      }
+    }
+  }
 `
 
 export const Nav = styled.nav`

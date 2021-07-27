@@ -1,10 +1,10 @@
 import React from 'react';
 
-import { Container, Content, Slider } from './styles';
+import { Wrapper, Content, Slider } from './styles';
 
 export default function Clients() {
 	return (
-		<Container>
+		<Wrapper>
 			<Content>
 				<Slider>
 					<h1>Nossos clientes</h1>
@@ -26,6 +26,6 @@ export default function Clients() {
 					</div>
 				</Slider>
 			</Content>
-		</Container>
+		</Wrapper>
 	);
 }

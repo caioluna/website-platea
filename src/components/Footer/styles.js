@@ -1,8 +1,9 @@
 import styled from 'styled-components'
 import instagramIcon from '../../assets/insta-icon.svg'
 
-export const Container = styled.div`
-  position: relative;
+export const Container = styled.footer`
+  position: absolute;
+  /* bottom: 0; */
   
   display: flex;
   justify-content: center;
@@ -16,6 +17,10 @@ export const Container = styled.div`
   color: #355264;
 
   .background-circles {
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+
     .circle {
       position: absolute;
       border-radius: 999px;
@@ -78,6 +83,7 @@ export const Content = styled.div`
 
   z-index: 1;
 `
+
 export const Logo = styled.div`
   display: flex;
   align-items: flex-start;

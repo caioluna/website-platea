@@ -1,35 +1,11 @@
 import styled, { keyframes } from 'styled-components'
 
-export const Container = styled.div`
+export const Wrapper = styled.section`
   display: flex;
   justify-content: center;
 
   width: 100vw;
   margin: 100px 0 100px;
-
-  .form-wrapper {
-    position: absolute;
-    right: 230px;
-    bottom: 0;
-
-    .tri-form {
-      position: absolute;
-      right: 0;
-      top: -100;
-
-      &:nth-of-type(2) {
-        right: -85px;
-        top: 135px;
-        z-index: -1;
-      }
-
-      &:nth-of-type(3) {
-        right: -120px;
-        top: 330px;
-        z-index: -2;
-      }
-    }
-  }
 `
 
 export const Content = styled.div`
@@ -45,7 +21,8 @@ const fadeIn = keyframes`
 `
 
 export const About = styled.div`
-  position: relative;
+  display: flex;
+  /* position: relative; */
   margin-top: 80px;
   margin: 100px 30px;
   border-radius: 8px;
@@ -80,5 +57,29 @@ export const About = styled.div`
       width: 660px;
     }
   }
-  
+`
+
+export const TriForms = styled.div`
+  position: relative;
+  height: 100%;
+
+  .tri-form {
+    width: 150px;
+    height: 150px;
+
+    position: absolute;
+    right: -200px;
+
+    &:nth-of-type(2) {
+      right: -250px;
+      top: 70px;
+      z-index: -1;
+    }
+
+    &:nth-of-type(3) {
+      right: -315px;
+      top: 170px;
+      z-index: -2;
+    }
+  }
 `

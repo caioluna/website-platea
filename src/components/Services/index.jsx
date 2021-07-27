@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Boxes, Container, Content } from './styles';
+import { Boxes, Wrapper, Content } from './styles';
 
 import './styles';
 import visualIcon from '../../assets/eye-regular.svg';
@@ -11,7 +11,7 @@ import geoBackgroundBottom from '../../assets/geo-background-bottom.png';
 
 export default function Services() {
 	return (
-		<Container>
+		<Wrapper>
 			<Content>
 				<h1>O que oferecemos</h1>
 
@@ -49,6 +49,6 @@ export default function Services() {
 			</Content>
 
 			<img className='geo-background' src={geoBackgroundBottom} alt='' />
-		</Container>
+		</Wrapper>
 	);
 }

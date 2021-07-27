@@ -2,28 +2,34 @@ import { GlobalStyle } from './styles/global';
 
 import Header from './components/Header';
 
-import Home from './pages/Home/index';
-import Agency from './components/Agency';
-import Clients from './components/Clients';
-import Services from './components/Services';
+import Home from './pages/Home';
+import Cases from './pages/Cases';
+import Contact from './pages/Contact';
 
 import Footer from './components/Footer';
+import PageNotFound from './components/Footer';
 
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function App() {
 	return (
 		<>
-			<GlobalStyle />
-
 			<Header />
 
-			<Home />
-			<Agency />
-			<Clients />
-			<Services />
+			<AnimatePresence>
+				<Switch>
+					<Route path='/' component={Home} exact />
+					<Route path='/cases' component={Cases} exact />
+					<Route path='/contato' component={Contact} exact />
+					<Route path='*' component={PageNotFound} exact />
+				</Switch>
+			</AnimatePresence>
 
 			<Footer />
+
+			<GlobalStyle />
 		</>
 	);
 }
