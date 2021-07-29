@@ -94,8 +94,6 @@ export const Jobs = styled.div`
     overflow: hidden;
 
     img {
-      border: 1px dashed slateblue;
-      width: 100%;
       height: 100%;
     }
 
@@ -130,7 +128,7 @@ export const Jobs = styled.div`
         gap: 5px;
 
 
-        span {
+        .hash {
           background-color: #fff;
           color: #2f2f2f;
           font-size: 12px;
