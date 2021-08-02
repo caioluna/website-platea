@@ -10,6 +10,7 @@ export const Container = styled(motion.main)`
   align-items: center;
 
   width: 100vw;
+  overflow: hidden;
 `
 
 export const Content = styled.section`
@@ -20,6 +21,14 @@ export const Content = styled.section`
 
   width: 1040px;
   height: 100vh;
+
+  .hero-logo {
+    position: absolute;
+    left: 0;
+
+    transform: rotate(-90deg);
+    height: 155px;
+  }
 
   .hero {
     display: flex;
@@ -82,11 +91,7 @@ export const Content = styled.section`
         }
       }
 
-      .hero-logo {
-        transform: translateY(150px);
-        opacity: 0;
-        animation: fadeIn 1s ease 300ms forwards;
-      }
+      
     }
   }
 
@@ -142,10 +147,4 @@ export const Content = styled.section`
     }
   }
 
-  @keyframes fadeIn {
-    to {
-      transform: translateY(0px);
-      opacity: 1;
-    }
-  }
 `

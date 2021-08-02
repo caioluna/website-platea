@@ -24,7 +24,11 @@ export default function Footer() {
 						<br />
 						Faça o seu projeto com a Platea.
 					</p>
-					<a href='https://www.instagram.com/platea.promo/' target='_blank'>
+					<a
+						href='https://www.instagram.com/platea.promo/'
+						target='_blank'
+						rel='noreferrer'
+					>
 						<span className='instagram-icon'></span>
 					</a>
 				</Logo>

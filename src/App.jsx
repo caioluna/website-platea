@@ -26,8 +26,6 @@ export default function App() {
 				</Switch>
 			</AnimatePresence>
 
-			<Footer />
-
 			<GlobalStyle />
 		</>
 	);

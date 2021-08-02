@@ -18,7 +18,7 @@ export const GlobalStyle = createGlobalStyle`
   
   body {
     font-family: 'Poppins', sans-serif;
-    background-color: #355264;
+    background-color: #121212;
     font-size: 14px;
     font-weight: 400;
     overflow-x: hidden;

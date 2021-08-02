@@ -26,20 +26,16 @@ export default function Home() {
 			exit={{ opacity: 0 }}
 		>
 			<Content>
+				<img
+					className='hero-logo'
+					src={plateaLogoHero}
+					alt='Platea Hero Logo'
+				/>
 				<div className='hero'>
 					<img className='geoform geo-white' src={geoFormWhite} alt='' />
 					<img className='geoform geo-yellow' src={geoFormYellow} alt='' />
-					<div className='hero-wrapper'>
-						<img className='hero-forms' src={form} alt='' />
-						<img className='hero-forms' src={form} alt='' />
-						<img className='hero-forms' src={form} alt='' />
-						<img className='hero-logo' src={plateaLogoHero} alt='Platea Logo' />
-					</div>
 				</div>
 			</Content>
-			<Agency />
-			<Clients />
-			<Services />
 		</Container>
 	);
 }

@@ -36,7 +36,7 @@ export const Header = styled.header`
     line-height: 40px;
     text-align: center;
     font-family: 'DINAlternateBlack';
-    color: #355264;
+    color: #121212;
   }
 
   form {
@@ -50,7 +50,7 @@ export const Header = styled.header`
         height: inherit;
         border-radius: 6px 0 0 6px;
   
-        background-color: #355264;
+        background-color: #2f2f2f;
         color: #fff;
         padding: 12px 20px;
         
@@ -64,7 +64,7 @@ export const Header = styled.header`
         height: inherit;
   
         border-radius: 0 6px 6px 0;
-        background-color: #1C3C50;
+        background-color: #121212;
         color: #fff;
       }
     }
@@ -81,17 +81,22 @@ export const Jobs = styled.div`
   width: 100%;
 
   .item {
-    position: relative;
+    /* position: relative; */
 
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
     
     width: 250px;
     height: 250px;
     border-radius: 8px;
     overflow: hidden;
+    /* cursor: none; */
+
+    &:hover .description {
+      display: flex;
+    }
 
     img {
       height: 100%;
@@ -99,7 +104,7 @@ export const Jobs = styled.div`
 
     .description {
       position: absolute;
-      display: flex;
+      display: none;
       flex-direction: column;
       justify-content: space-around;
       align-items: center;
@@ -114,6 +119,7 @@ export const Jobs = styled.div`
 
       h4 {
         /* font-family: Poppins; */
+        width: 100px;
         font-weight: 400;
         font-size: 14px;
         line-height: 20px;
@@ -128,7 +134,7 @@ export const Jobs = styled.div`
         gap: 5px;
 
 
-        .hash {
+        span {
           background-color: #fff;
           color: #2f2f2f;
           font-size: 12px;

@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { Container, Content, Nav } from './styles';
 
-import plateaLogoWhite from '../../assets/platea-logo-white.svg';
+import plateaCircleLogo from '../../assets/platea_circle_logo.svg';
 
 export default function Header() {
 	return (
@@ -10,22 +10,29 @@ export default function Header() {
 			<Content>
 				<div className='logo'>
 					<NavLink to='/'>
-						<img src={plateaLogoWhite} alt='Platea Logo' />
+						<img src={plateaCircleLogo} alt='Platea Logo' />
 					</NavLink>
+					<Nav>
+						<ul>
+							<div className='left'>
+								<li>
+									<NavLink to=''>Sobre</NavLink>
+								</li>
+								<li>
+									<NavLink to=''>Serviços</NavLink>
+								</li>
+							</div>
+							<div className='right'>
+								<li>
+									<NavLink to=''>Cases</NavLink>
+								</li>
+								<li>
+									<NavLink to=''>Contato</NavLink>
+								</li>
+							</div>
+						</ul>
+					</Nav>
 				</div>
-				<Nav>
-					<ul>
-						<li>
-							<NavLink to='/'>Home</NavLink>
-						</li>
-						<li>
-							<NavLink to='/cases'>Cases</NavLink>
-						</li>
-						<li>
-							<NavLink to=''>Contato</NavLink>
-						</li>
-					</ul>
-				</Nav>
 			</Content>
 		</Container>
 	);
