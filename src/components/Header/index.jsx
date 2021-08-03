@@ -1,20 +1,26 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { Container, Content, Nav } from './styles';
+import React, { useState } from 'react'
+import { NavLink } from 'react-router-dom'
+import { Container, Content, Nav } from './styles'
 
-import plateaCircleLogo from '../../assets/platea_circle_logo.svg';
+import plateaCircleLogo from '../../assets/platea_circle_logo.svg'
 
 export default function Header() {
+	const [openCloseMenu, setOpenCloseMenu] = useState(false)
+
+	const handleOpenCloseMenu = () => {
+		setOpenCloseMenu(!openCloseMenu)
+	}
+
 	return (
 		<Container>
 			<Content>
 				<div className='logo'>
-					<NavLink to='/'>
+					<button to='#' onClick={handleOpenCloseMenu}>
 						<img src={plateaCircleLogo} alt='Platea Logo' />
-					</NavLink>
+					</button>
 					<Nav>
 						<ul>
-							<div className='left'>
+							<div id='left' className={openCloseMenu ? 'open' : ''}>
 								<li>
 									<NavLink to=''>Sobre</NavLink>
 								</li>
@@ -22,7 +28,7 @@ export default function Header() {
 									<NavLink to=''>Serviços</NavLink>
 								</li>
 							</div>
-							<div className='right'>
+							<div id='right' className={openCloseMenu ? 'open' : ''}>
 								<li>
 									<NavLink to=''>Cases</NavLink>
 								</li>
@@ -35,5 +41,5 @@ export default function Header() {
 				</div>
 			</Content>
 		</Container>
-	);
+	)
 }

@@ -2,14 +2,8 @@ import React, { useEffect } from 'react';
 
 import { Container, Content } from './styles';
 
-import Agency from '../../components/Agency';
-import Clients from '../../components/Clients';
-import Services from '../../components/Services';
-
 import plateaLogoHero from '../../assets/platea-logo-hero.svg';
-import form from '../../assets/square-form.svg';
-import geoFormWhite from '../../assets/Background-white.png';
-import geoFormYellow from '../../assets/Background-yellow.png';
+import geoFormFull from '../../assets/geo-form-full.svg';
 
 import { motion } from 'framer-motion';
 
@@ -32,8 +26,16 @@ export default function Home() {
 					alt='Platea Hero Logo'
 				/>
 				<div className='hero'>
-					<img className='geoform geo-white' src={geoFormWhite} alt='' />
-					<img className='geoform geo-yellow' src={geoFormYellow} alt='' />
+					<img
+						className='geoform left'
+						src={geoFormFull}
+						alt='Geometric background left form'
+					/>
+					<img
+						className='geoform right'
+						src={geoFormFull}
+						alt='Geometric background right form'
+					/>
 				</div>
 			</Content>
 		</Container>

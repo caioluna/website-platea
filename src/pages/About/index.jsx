@@ -1,16 +1,12 @@
-import React from 'react';
+import React from 'react'
 
-import { About, Wrapper, Content, TriForms } from './styles';
+import { Container, Content, Section } from './styles'
 
-import triForm1 from '../../assets/tri-form-1.png';
-import triForm2 from '../../assets/tri-form-2.png';
-import triForm3 from '../../assets/tri-form-3.png';
-
-export default function Agency() {
+export default function About() {
 	return (
-		<Wrapper>
+		<Container>
 			<Content>
-				<About>
+				<Section>
 					<div className='agency-text'>
 						<h1>A agência</h1>
 						<p>
@@ -27,14 +23,8 @@ export default function Agency() {
 							nossas relações.
 						</p>
 					</div>
-
-					<TriForms>
-						<img className='tri-form' src={triForm1} alt='' />
-						<img className='tri-form' src={triForm2} alt='' />
-						<img className='tri-form' src={triForm3} alt='' />
-					</TriForms>
-				</About>
+				</Section>
 			</Content>
-		</Wrapper>
-	);
+		</Container>
+	)
 }
