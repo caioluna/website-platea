@@ -1,85 +1,50 @@
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-export const Container = styled.section`
+export const Container = styled(motion.main)`
+	position: relative;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 
 	width: 100vw;
-	margin: 100px 0 100px;
+	height: 100vh;
+
+	overflow: hidden;
 `
 
-export const Content = styled.div`
-	display: flex;
+export const Content = styled.section`
+	position: inherit;
+
 	width: 1040px;
-`
+	height: inherit;
 
-const fadeIn = keyframes`
-  to {
-    transform: translateY(0px);
-    opacity: 1;
-  }
-`
+	.page-title {
+		position: absolute;
+		left: 0;
+		bottom: 220px;
 
-export const Section = styled.section`
-	display: flex;
-	/* position: relative; */
-	margin-top: 80px;
-	margin: 100px 30px;
-	border-radius: 8px;
-
-	h1 {
-		font-size: 36px;
-		line-height: 40px;
+		font-size: 64px;
 		color: #fddb00;
 		font-family: 'DINAlternateBlack';
 		margin-bottom: 50px;
-
-		opacity: 0;
-		transform: translateY(100px);
-		transition: all 0.4s;
-		animation: ${fadeIn} 1s ease 300ms forwards;
-	}
-
-	p {
-		font-size: 16px;
-		line-height: 30px;
-		color: #fff;
-
-		+ p {
-			margin-top: 30px;
-		}
-
-		&:first-of-type {
-			width: 560px;
-		}
-
-		&:last-of-type {
-			width: 660px;
-		}
 	}
 `
 
-// export const TriForms = styled.div`
-//   position: relative;
-//   height: 100%;
+export const Text = styled.div`
+	display: flex;
+	border-radius: 8px;
 
-//   .tri-form {
-//     width: 150px;
-//     height: 150px;
+	.agency-text {
+		position: absolute;
+		top: 160px;
+		right: 0;
+		width: 510px;
 
-//     position: absolute;
-//     right: -200px;
-
-//     &:nth-of-type(2) {
-//       right: -250px;
-//       top: 70px;
-//       z-index: -1;
-//     }
-
-//     &:nth-of-type(3) {
-//       right: -315px;
-//       top: 170px;
-//       z-index: -2;
-//     }
-//   }
-// `
+		p {
+			font-size: 16px;
+			line-height: 30px;
+			color: #fff;
+		}
+	}
+`

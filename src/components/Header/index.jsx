@@ -1,39 +1,46 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Container, Content, Nav } from './styles'
 
 import plateaCircleLogo from '../../assets/platea_circle_logo.svg'
 
 export default function Header() {
-	const [openCloseMenu, setOpenCloseMenu] = useState(false)
+	const [openMenu, setOpenMenu] = useState(false)
 
 	const handleOpenCloseMenu = () => {
-		setOpenCloseMenu(!openCloseMenu)
+		setOpenMenu(!openMenu)
 	}
+
+	useEffect(() => {
+		const menuTimer = setInterval(() => {
+			setOpenMenu(false)
+		}, 8000)
+		return () => clearInterval(menuTimer)
+	}, [openMenu])
 
 	return (
 		<Container>
 			<Content>
 				<div className='logo'>
-					<button to='#' onClick={handleOpenCloseMenu}>
+					<button onClick={handleOpenCloseMenu}>
 						<img src={plateaCircleLogo} alt='Platea Logo' />
 					</button>
 					<Nav>
 						<ul>
-							<div id='left' className={openCloseMenu ? 'open' : ''}>
+							<div id='left' className={openMenu ? 'open' : ''}>
 								<li>
-									<NavLink to=''>Sobre</NavLink>
+									<NavLink to='/about'>Sobre</NavLink>
 								</li>
 								<li>
-									<NavLink to=''>Serviços</NavLink>
+									<NavLink to='/services'>Serviços</NavLink>
 								</li>
 							</div>
-							<div id='right' className={openCloseMenu ? 'open' : ''}>
+							<div id='right' className={openMenu ? 'open' : ''}>
 								<li>
-									<NavLink to=''>Cases</NavLink>
+									<NavLink to='/cases'>Cases</NavLink>
 								</li>
 								<li>
-									<NavLink to=''>Contato</NavLink>
+									<NavLink to='/contact'>Contato</NavLink>
 								</li>
 							</div>
 						</ul>

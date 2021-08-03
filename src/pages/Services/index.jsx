@@ -1,17 +1,16 @@
-import React from 'react';
+import React from 'react'
 
-import { Boxes, Wrapper, Content } from './styles';
+import { Boxes, Container, Content } from './styles'
 
-import './styles';
-import visualIcon from '../../assets/eye-regular.svg';
-import pressKitIcon from '../../assets/box-open-solid.svg';
-import giftIcon from '../../assets/gifts-solid.svg';
-import createIcon from '../../assets/palette-solid.svg';
-import geoBackgroundBottom from '../../assets/geo-background-bottom.png';
+import './styles'
+import visualIcon from '../../assets/eye-regular.svg'
+import pressKitIcon from '../../assets/box-open-solid.svg'
+import giftIcon from '../../assets/gifts-solid.svg'
+import createIcon from '../../assets/palette-solid.svg'
 
 export default function Services() {
 	return (
-		<Wrapper>
+		<Container>
 			<Content>
 				<h1>O que oferecemos</h1>
 
@@ -47,8 +46,6 @@ export default function Services() {
 					</div>
 				</Boxes>
 			</Content>
-
-			<img className='geo-background' src={geoBackgroundBottom} alt='' />
-		</Wrapper>
-	);
+		</Container>
+	)
 }

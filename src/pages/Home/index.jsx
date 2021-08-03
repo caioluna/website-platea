@@ -1,17 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react'
 
-import { Container, Content } from './styles';
+import { Container, Content } from './styles'
 
-import plateaLogoHero from '../../assets/platea-logo-hero.svg';
-import geoFormFull from '../../assets/geo-form-full.svg';
+import plateaLogoHero from '../../assets/platea-logo-hero.svg'
 
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
+import GeoForm from '../../components/GeoForm'
 
 export default function Home() {
-	useEffect(() => {
-		window.scroll(0, 0);
-	}, []);
-
 	return (
 		<Container
 			as={motion.main}
@@ -25,19 +21,8 @@ export default function Home() {
 					src={plateaLogoHero}
 					alt='Platea Hero Logo'
 				/>
-				<div className='hero'>
-					<img
-						className='geoform left'
-						src={geoFormFull}
-						alt='Geometric background left form'
-					/>
-					<img
-						className='geoform right'
-						src={geoFormFull}
-						alt='Geometric background right form'
-					/>
-				</div>
 			</Content>
+			<GeoForm />
 		</Container>
-	);
+	)
 }

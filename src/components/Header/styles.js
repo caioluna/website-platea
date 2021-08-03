@@ -10,6 +10,7 @@ export const Container = styled.header`
 	height: 40px;
 	z-index: 9999;
 `
+
 export const Content = styled.div`
 	max-width: 1040px;
 	width: 1040px;
@@ -61,14 +62,14 @@ export const Nav = styled.nav`
 
 			li {
 				opacity: 0;
-				transform: translateX(180px);
-				transition: all 0.1s ease;
+				transform: translateX(180px) scale(0);
+				transition: all 0.5s ease;
 			}
 
 			&.open > li {
 				opacity: 1;
-				transform: translateX(-45px);
-				transition: all 0.1s ease;
+				transform: translateX(-45px) scale(1);
+				transition: all 0.5s ease;
 			}
 		}
 
@@ -79,14 +80,14 @@ export const Nav = styled.nav`
 
 			li {
 				opacity: 0;
-				transform: translateX(-180px);
-				transition: all 0.1s ease;
+				transform: translateX(-180px) scale(0);
+				transition: all 0.5s ease;
 			}
 
 			&.open > li {
 				opacity: 1;
-				transform: translateX(45px);
-				transition: all 0.1s ease;
+				transform: translateX(45px) scale(1);
+				transition: all 0.5s ease;
 			}
 		}
 
