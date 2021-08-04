@@ -1,6 +1,6 @@
 import { GlobalStyle } from './styles/global'
 
-import Header from './components/Header'
+import Navbar from './components/Navbar'
 
 import Home from './pages/Home'
 import About from './pages/About'
@@ -16,7 +16,7 @@ import { AnimatePresence } from 'framer-motion'
 export default function App() {
 	return (
 		<>
-			<Header />
+			<Navbar />
 
 			<AnimatePresence>
 				<Switch>

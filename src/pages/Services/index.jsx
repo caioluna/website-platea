@@ -1,50 +1,54 @@
 import React from 'react'
+import CloseButton from '../../components/CloseButton'
+import BoxItem from '../../components/Box'
+import GeoForm from '../../components/GeoForm'
 
-import { Boxes, Container, Content } from './styles'
+import { Container, Content } from './styles'
 
-import './styles'
 import visualIcon from '../../assets/eye-regular.svg'
 import pressKitIcon from '../../assets/box-open-solid.svg'
 import giftIcon from '../../assets/gifts-solid.svg'
 import createIcon from '../../assets/palette-solid.svg'
 
 export default function Services() {
+	// useEffect(() => {
+	// 	const timer = setInterval(() => {
+	// 		setShow(false)
+	// 	}, 2000)
+	// 	return () => clearInterval(timer)
+	// }, [show])
+
 	return (
 		<Container>
+			<CloseButton />
+			<GeoForm />
 			<Content>
-				<h1>O que oferecemos</h1>
+				<h1>Nossos serviços</h1>
 
-				<Boxes>
-					<div className='box'>
-						<h4>Visual</h4>
-						<img src={visualIcon} alt='Visual icon' />
-						<span className='description'>
-							O que os olhos veem, o coração sente
-						</span>
-					</div>
-
-					<div className='box'>
-						<h4>Press kit</h4>
-						<img src={pressKitIcon} alt='Visual icon' />
-						<span className='description'>
-							Quero ver todo mundo falando da gente
-						</span>
-					</div>
-
-					<div className='box'>
-						<h4>Brindes</h4>
-						<img src={giftIcon} alt='Visual icon' />
-						<span className='description'>Dando forma a sonhos e ideias</span>
-					</div>
-
-					<div className='box'>
-						<h4>Criação</h4>
-						<img src={createIcon} alt='Visual icon' />
-						<span className='description'>
-							O impossível é pra já! Os milagres demoram um pouco mais
-						</span>
-					</div>
-				</Boxes>
+				<div className='box-wrapper'>
+					<BoxItem
+						icon={visualIcon}
+						description={'O que os olhos veem, o coração sente.'}
+						title={'Visual'}
+					/>
+					<BoxItem
+						icon={pressKitIcon}
+						description={'Quero ver todo mundo falando da gente.'}
+						title={'Press kit'}
+					/>
+					<BoxItem
+						icon={giftIcon}
+						description={'Dando forma a sonhos e ideias.'}
+						title={'Brindes'}
+					/>
+					<BoxItem
+						icon={createIcon}
+						description={
+							'O impossível é pra já! Os milagres demoram um pouco mais.'
+						}
+						title={'Criação'}
+					/>
+				</div>
 			</Content>
 		</Container>
 	)

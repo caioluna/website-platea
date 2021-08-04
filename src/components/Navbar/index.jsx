@@ -4,7 +4,7 @@ import { Container, Content, Nav } from './styles'
 
 import plateaCircleLogo from '../../assets/platea_circle_logo.svg'
 
-export default function Header() {
+export default function Navbar() {
 	const [openMenu, setOpenMenu] = useState(false)
 
 	const handleOpenCloseMenu = () => {
@@ -14,7 +14,7 @@ export default function Header() {
 	useEffect(() => {
 		const menuTimer = setInterval(() => {
 			setOpenMenu(false)
-		}, 8000)
+		}, 6000)
 		return () => clearInterval(menuTimer)
 	}, [openMenu])
 
