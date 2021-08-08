@@ -1,30 +1,17 @@
 import { motion } from 'framer-motion'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import useFetch from '../../hooks/useFetch'
+
 import CloseButton from '../../components/CloseButton'
+import GeoForm from '../../components/GeoForm'
+
 import { Container, Content, Header, Jobs } from '../Cases/styles'
 
 export default function Cases() {
-	const [images, setImages] = useState([])
-	// const [isLoading, setIsLoading] = useState(true);
-	// const [searchTerm, setSearchTerm] = useState('');
+	const { data, error, loading } = useFetch('http://localhost:1337/photos')
 
-	useEffect(() => {
-		window.scroll(0, 0)
-
-		try {
-			const fetchImages = async () => {
-				const response = await fetch(
-					`https://graph.instagram.com/me/media?access_token=${process.env.REACT_APP_INSTAGRAM_KEY}&fields=id,caption,media_type,media_url`
-				)
-				const posts = await response.json()
-				setImages([...posts.data])
-			}
-
-			fetchImages()
-		} catch (error) {
-			console.log(error)
-		}
-	}, [])
+	if (loading) return <p>Loading...</p>
+	if (error) return <p>Error...</p>
 
 	return (
 		<Container
@@ -34,63 +21,62 @@ export default function Cases() {
 			exit={{ opacity: 0 }}
 		>
 			<CloseButton />
+			<GeoForm />
 			<Content>
 				<Header>
-					<h1>Cases</h1>
 					<form action=''>
 						<label htmlFor=''>
 							<input type='text' placeholder='Filtrar' />
 							<button>Buscar</button>
 						</label>
 					</form>
+
+					<div className='btn-wrapper'>
+						<button className='left'>prev</button>
+						<br />
+						<button className='right'>next</button>
+					</div>
 				</Header>
+				<div className='title-wrapper'>
+					<h1>Cases</h1>
+				</div>
+
 				<Jobs>
-					{images.map(image => {
-						function handleTagsCaption(caption) {
-							if (!caption) return null
-							let newArray = caption.split(' ')
-
-							const hashes = newArray.filter(item => {
-								return item.includes('#')
-							})
-							return hashes
-						}
-
-						function handleTitleCaption(caption) {
-							if (!caption) return null
-
-							let newArray = caption.split(' ')
-
-							const title = newArray.filter(item => {
-								return !item.includes('#')
-							})
-
-							return title
-						}
+					{data.map(image => {
+						// const tags = image.tags.split(',')
 
 						return (
 							<div
 								key={image.id}
 								className='item'
 								onMouseMove={e => {
-									const desc = document.querySelectorAll('.description')
+									const itemDescription =
+										document.querySelectorAll('.description')
 
-									let x = e.pageX
-									let y = e.pageY
+									let x = e.clientX
+									let y = e.clientY
 
-									for (let each of desc) {
+									for (let each of itemDescription) {
 										each.style.left = x + 'px'
 										each.style.top = y + 'px'
 									}
 								}}
 							>
-								<img src={image.media_url} alt={`imagem de`} />
+								<img
+									src={`http://localhost:1337${image.image.formats.small.url}`}
+									alt={`imagem de`}
+								/>
 								<span className='description'>
-									<h4>{handleTitleCaption(image.caption)}</h4>
+									<h4>{image.title}</h4>
 									<div className='hashtag'>
-										<span className='hash'>
-											{handleTagsCaption(image.caption)}
-										</span>
+										{image.tags.split(',').map(tag => {
+											console.log(tag)
+											return (
+												<span key={Math.random()} className='hash'>
+													#{tag.trim()}
+												</span>
+											)
+										})}
 									</div>
 								</span>
 							</div>
