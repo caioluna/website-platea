@@ -1,6 +1,11 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 
+export const Loading = styled.p`
+	color: white;
+	font-size: 36px;
+`
+
 export const Container = styled(motion.main)`
 	position: relative;
 	width: 100vw;
@@ -11,6 +16,7 @@ export const Container = styled(motion.main)`
 	justify-content: center;
 
 	overflow: hidden;
+	color: fff;
 `
 
 export const Content = styled.section`
@@ -135,11 +141,11 @@ export const Jobs = styled.div`
 			padding: 15px 20px;
 
 			border-radius: 8px;
-			background-color: #355264;
-			color: #fff;
+			background-color: #fddb00;
+			color: #212121;
 
 			h4 {
-				/* font-family: Poppins; */
+				text-align: center;
 				width: 100px;
 				font-weight: 400;
 				font-size: 14px;
@@ -155,8 +161,8 @@ export const Jobs = styled.div`
 				gap: 5px;
 
 				.hash {
-					background-color: #fff;
-					color: #2f2f2f;
+					background-color: #212121;
+					color: #fff;
 					font-size: 12px;
 					padding: 2px 6px;
 					border-radius: 3px;

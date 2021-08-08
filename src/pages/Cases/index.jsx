@@ -5,12 +5,12 @@ import useFetch from '../../hooks/useFetch'
 import CloseButton from '../../components/CloseButton'
 import GeoForm from '../../components/GeoForm'
 
-import { Container, Content, Header, Jobs } from '../Cases/styles'
+import { Container, Content, Header, Jobs, Loading } from '../Cases/styles'
 
 export default function Cases() {
 	const { data, error, loading } = useFetch('http://localhost:1337/photos')
 
-	if (loading) return <p>Loading...</p>
+	if (loading) return <Loading>Loading...</Loading>
 	if (error) return <p>Error...</p>
 
 	return (
@@ -30,21 +30,12 @@ export default function Cases() {
 							<button>Buscar</button>
 						</label>
 					</form>
-
-					<div className='btn-wrapper'>
-						<button className='left'>prev</button>
-						<br />
-						<button className='right'>next</button>
-					</div>
 				</Header>
 				<div className='title-wrapper'>
 					<h1>Cases</h1>
 				</div>
-
 				<Jobs>
 					{data.map(image => {
-						// const tags = image.tags.split(',')
-
 						return (
 							<div
 								key={image.id}
@@ -69,10 +60,9 @@ export default function Cases() {
 								<span className='description'>
 									<h4>{image.title}</h4>
 									<div className='hashtag'>
-										{image.tags.split(',').map(tag => {
-											console.log(tag)
+										{image.tags.split(',').map((tag, id) => {
 											return (
-												<span key={Math.random()} className='hash'>
+												<span key={id} className='hash'>
 													#{tag.trim()}
 												</span>
 											)
