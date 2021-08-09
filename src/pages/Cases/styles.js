@@ -92,33 +92,15 @@ export const Header = styled.header`
 `
 
 export const Jobs = styled.div`
-	/* position: relative; */
-
-	/* display: grid;
-	justify-items: center;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 15px; */
-
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
 	gap: 10px;
-
-	/* max-height: 500px;
-	height: 100%; */
 	margin-top: 80px;
 
 	.item {
-		/* position: relative; */
-
-		/* display: flex; */
-		/* flex-direction: column; */
-		/* justify-content: center; */
-		/* align-items: center; */
-
 		width: 200px;
 		height: 200px;
-		border-radius: 8px;
+		border-radius: 3px;
 		overflow: hidden;
 
 		&:hover .description {
@@ -140,20 +122,38 @@ export const Jobs = styled.div`
 			height: 100px;
 			padding: 15px 20px;
 
-			border-radius: 8px;
+			border-radius: 3px;
 			background-color: #fddb00;
 			color: #212121;
 
 			h4 {
-				text-align: center;
-				width: 100px;
+				position: absolute;
+				top: 0;
+
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				width: 100%;
+				height: 40px;
+				padding: 8px;
+
 				font-weight: 400;
 				font-size: 14px;
-				line-height: 20px;
-				margin-bottom: 15px;
+				line-height: 28px;
+
+				color: #fff;
+				background-color: #212121;
 			}
 
 			.hashtag {
+				position: absolute;
+				bottom: 0;
+
+				width: 100%;
+				height: 60px;
+				padding: 8px;
+
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: center;
@@ -162,10 +162,10 @@ export const Jobs = styled.div`
 
 				.hash {
 					background-color: #212121;
-					color: #fff;
-					font-size: 12px;
+					color: #fddb00;
+					font-size: 10px;
 					padding: 2px 6px;
-					border-radius: 3px;
+					border-radius: 2px;
 
 					> .hash {
 						margin-right: 8px;
