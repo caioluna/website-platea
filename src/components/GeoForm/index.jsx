@@ -29,6 +29,11 @@ export default function GeoForm() {
 }
 
 const Background = styled.div`
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+
 	.geoform {
 		position: absolute;
 		z-index: -999;

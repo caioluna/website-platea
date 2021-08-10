@@ -1,38 +1,20 @@
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
-import { gql, useQuery } from '@apollo/client'
 
 import CloseButton from '../../components/CloseButton'
 import GeoForm from '../../components/GeoForm'
+import Photo from '../../components/Photo'
+import SearchInput from '../../components/SearchInput'
+import useFetch from '../../hooks/useFetch'
 
-import {
-	Container,
-	Content,
-	Header,
-	Loading,
-	PhotoContainer,
-} from '../Cases/styles'
-
-const PHOTOS = gql`
-	{
-		photos {
-			id
-			title
-			description
-			tags
-			image {
-				formats
-			}
-		}
-	}
-`
+import { Container, Content, PhotoSlider } from '../Cases/styles'
 
 export default function Cases() {
-	const { loading, error, data } = useQuery(PHOTOS)
-	const [searchWord, setSearchWord] = useState('')
+	const { data, error, loading } = useFetch('http://localhost:1337/photos')
+	const [currentPhoto, setCurrentPhoto] = useState(0)
 
-	if (loading) return <Loading>Loading...</Loading>
-	if (error) return console.log(error)
+	if (loading) return <p>Loading...</p>
+	if (error) return <p>Error...</p>
 
 	return (
 		<Container
@@ -41,52 +23,42 @@ export default function Cases() {
 			animate={{ opacity: 1 }}
 			exit={{ opacity: 0 }}
 		>
+			<h1>Cases</h1>
+
 			<CloseButton />
 			<GeoForm />
+			<SearchInput />
+			<div className='controls'>
+				<button
+					className='previous'
+					onClick={() => {
+						setCurrentPhoto(currentPhoto - 1)
+					}}
+				>
+					previous
+				</button>
+				<button
+					className='next'
+					onClick={() => {
+						setCurrentPhoto(currentPhoto + 1)
+					}}
+				>
+					next
+				</button>
+			</div>
 			<Content>
-				<Header>
-					<label htmlFor='searchField'>
-						<input
-							value={searchWord}
-							onChange={event => setSearchWord(event.target.value)}
-							id='searchField'
-							type='text'
-							placeholder='Filtrar por tags...'
-						/>
-					</label>
-				</Header>
-				<div className='title-wrapper'>
-					<h1>Cases</h1>
-				</div>
-				<PhotoContainer>
-					{data.photos
-						.filter(value => {
-							if (searchWord === '') return value
-							return value.tags.includes(searchWord.toLowerCase())
-						})
-						.map(photo => {
-							return (
-								<div key={photo.id} className='item'>
-									<img
-										src={`http://localhost:1337${photo.image.formats.small.url}`}
-										alt={photo.title}
-									/>
-									<span className='description'>
-										<h4>{photo.title}</h4>
-										<div className='hashtag'>
-											{photo.tags.split(',').map((tag, id) => {
-												return (
-													<span key={id} className='hash'>
-														#{tag.trim()}
-													</span>
-												)
-											})}
-										</div>
-									</span>
-								</div>
-							)
-						})}
-				</PhotoContainer>
+				<PhotoSlider className={`current-slider-${data.id}`}>
+					<div
+						className='photo-slider-wrapper'
+						style={{
+							transform: `translateX(-${data.index * (100 / data.length)}%)`,
+						}}
+					>
+						{data.map(data => (
+							<Photo key={data.id} data={data} currentPhoto={currentPhoto} />
+						))}
+					</div>
+				</PhotoSlider>
 			</Content>
 		</Container>
 	)
