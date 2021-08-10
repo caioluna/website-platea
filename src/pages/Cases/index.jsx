@@ -1,14 +1,34 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-import useFetch from '../../hooks/useFetch'
+import { useQuery, gql } from '@apollo/client'
 
 import CloseButton from '../../components/CloseButton'
 import GeoForm from '../../components/GeoForm'
 
-import { Container, Content, Header, Jobs, Loading } from '../Cases/styles'
+import {
+	Container,
+	Content,
+	Header,
+	PhotoContainer,
+	Loading,
+} from '../Cases/styles'
+
+const PHOTOS = gql`
+	query GetPhotos {
+		photos {
+			id
+			title
+			description
+			tags
+			image {
+				formats
+			}
+		}
+	}
+`
 
 export default function Cases() {
-	const { data, error, loading } = useFetch('http://localhost:1337/photos')
+	const { loading, error, data } = useQuery(PHOTOS)
 
 	if (loading) return <Loading>Loading...</Loading>
 	if (error) return <p>Error...</p>
@@ -34,11 +54,11 @@ export default function Cases() {
 				<div className='title-wrapper'>
 					<h1>Cases</h1>
 				</div>
-				<Jobs>
-					{data.map(image => {
+				<PhotoContainer>
+					{data.photos.map(photo => {
 						return (
 							<div
-								key={image.id}
+								key={photo.id}
 								className='item'
 								onMouseMove={e => {
 									const itemDescription =
@@ -54,13 +74,13 @@ export default function Cases() {
 								}}
 							>
 								<img
-									src={`http://localhost:1337${image.image.formats.small.url}`}
+									src={`http://localhost:1337${photo.image.formats.small.url}`}
 									alt={`imagem de`}
 								/>
 								<span className='description'>
-									<h4>{image.title}</h4>
+									<h4>{photo.title}</h4>
 									<div className='hashtag'>
-										{image.tags.split(',').map((tag, id) => {
+										{photo.tags.split(',').map((tag, id) => {
 											return (
 												<span key={id} className='hash'>
 													#{tag.trim()}
@@ -72,7 +92,7 @@ export default function Cases() {
 							</div>
 						)
 					})}
-				</Jobs>
+				</PhotoContainer>
 			</Content>
 		</Container>
 	)

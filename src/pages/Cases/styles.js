@@ -16,7 +16,7 @@ export const Container = styled(motion.main)`
 	justify-content: center;
 
 	overflow: hidden;
-	color: fff;
+	color: #fff;
 `
 
 export const Content = styled.section`
@@ -91,31 +91,14 @@ export const Header = styled.header`
 	}
 `
 
-export const Jobs = styled.div`
-	/* position: relative; */
-
-	/* display: grid;
-	justify-items: center;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 15px; */
-
+export const PhotoContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
 	gap: 10px;
-
-	/* max-height: 500px;
-	height: 100%; */
+	height: 500px;
 	margin-top: 80px;
 
 	.item {
-		/* position: relative; */
-
-		/* display: flex; */
-		/* flex-direction: column; */
-		/* justify-content: center; */
-		/* align-items: center; */
-
 		width: 200px;
 		height: 200px;
 		border-radius: 8px;
