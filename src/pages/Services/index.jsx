@@ -11,13 +11,6 @@ import giftIcon from '../../assets/gifts-solid.svg'
 import createIcon from '../../assets/palette-solid.svg'
 
 export default function Services() {
-	// useEffect(() => {
-	// 	const timer = setInterval(() => {
-	// 		setShow(false)
-	// 	}, 2000)
-	// 	return () => clearInterval(timer)
-	// }, [show])
-
 	return (
 		<Container>
 			<CloseButton />

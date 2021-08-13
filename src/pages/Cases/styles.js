@@ -39,7 +39,7 @@ export const Content = styled.section`
 			font-size: 64px;
 			line-height: 40px;
 			text-align: center;
-			font-family: 'DINAlternateBlack';
+			font-family: 'DINAlternateBlack', sans-serif;
 			color: #fddb00;
 			transform: rotate(-90deg);
 		}
@@ -56,36 +56,22 @@ export const Header = styled.header`
 	width: 100%;
 	height: 50px;
 
-	form {
-		width: 400px;
+	label {
+		position: relative;
+		height: 40px;
 
-		label {
-			position: relative;
-			height: 40px;
+		input {
+			width: 400px;
+			height: inherit;
+			border-radius: 3px;
 
-			input {
-				width: 318px;
-				height: inherit;
-				border-radius: 6px 0 0 6px;
+			background-color: #212121;
+			border: 1px solid #fddb00;
+			color: #fff;
+			padding: 12px 20px;
 
-				background-color: #212121;
-				border: 1px solid #b0b0b0;
-				border-right: 0;
-				color: #fff;
-				padding: 12px 20px;
-
-				&::placeholder {
-					color: #b0b0b0;
-				}
-			}
-
-			button {
-				width: 80px;
-				height: inherit;
-
-				border-radius: 0 6px 6px 0;
-				background-color: #fddb00;
-				color: #2f2f2f;
+			&::placeholder {
+				color: #b0b0b0;
 			}
 		}
 	}
@@ -96,12 +82,12 @@ export const PhotoContainer = styled.div`
 	flex-wrap: wrap;
 	gap: 10px;
 	height: 500px;
-	margin-top: 80px;
+	margin-top: 60px;
 
 	.item {
-		width: 200px;
-		height: 200px;
-		border-radius: 8px;
+		width: 250px;
+		height: 250px;
+		border-radius: 3px;
 		overflow: hidden;
 
 		&:hover .description {
@@ -123,7 +109,7 @@ export const PhotoContainer = styled.div`
 			height: 100px;
 			padding: 15px 20px;
 
-			border-radius: 8px;
+			border-radius: 3px;
 			background-color: #fddb00;
 			color: #212121;
 
