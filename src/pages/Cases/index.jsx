@@ -15,7 +15,7 @@ import {
 } from '../Cases/styles'
 
 const PHOTOS = gql`
-	query GetPhotos {
+	{
 		photos {
 			id
 			title
@@ -33,17 +33,16 @@ export default function Cases() {
 	const [searchWord, setSearchWord] = useState('')
 	const [pageNumber, setPageNumber] = useState(0)
 
+	if (loading) return <Loading>Loading...</Loading>
+	if (error) return console.log(error)
+
 	const photosPerPage = 8
 	const pagesVisited = pageNumber * photosPerPage
-	const dataCollection = data.photos
+	const pageCount = data.photos.length / photosPerPage
 
-	const pageCount = Math.ceil(dataCollection.length / photosPerPage)
 	const handlePageChange = ({ selected }) => {
 		setPageNumber(selected)
 	}
-
-	if (loading) return <Loading>Loading...</Loading>
-	if (error) return <p>Error.</p>
 
 	return (
 		<Container
@@ -115,10 +114,42 @@ export default function Cases() {
 						})}
 				</PhotoContainer>
 				<ReactPaginate
-					previousLabel={'Voltar'}
-					nextLabel={'Avançar'}
-					pageCount={pageCount}
+					previousLabel={
+						<svg
+							width='15'
+							height='24'
+							viewBox='0 0 15 24'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'
+						>
+							<path
+								d='M0 2.544L9.456 12L0 21.456L2.544 24L14.544 12L2.544 0L0 2.544Z'
+								fill='#FDDB00'
+							/>
+						</svg>
+					}
+					nextLabel={
+						<svg
+							width='15'
+							height='24'
+							viewBox='0 0 15 24'
+							fill='none'
+							xmlns='http://www.w3.org/2000/svg'
+						>
+							<path
+								d='M0 2.544L9.456 12L0 21.456L2.544 24L14.544 12L2.544 0L0 2.544Z'
+								fill='#FDDB00'
+							/>
+						</svg>
+					}
 					onPageChange={handlePageChange}
+					pageCount={pageCount}
+					pageRangeDisplayed={3}
+					marginPagesDisplayed={2}
+					breakLabel={'...'}
+					containerClassName={'pagination'}
+					activeClassName={'active-page'}
+					disabledClassName={'disabled-page'}
 				/>
 			</Content>
 		</Container>

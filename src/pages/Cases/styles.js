@@ -44,6 +44,78 @@ export const Content = styled.section`
 			transform: rotate(-90deg);
 		}
 	}
+
+	.pagination {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		margin-top: 40px;
+
+		li {
+			list-style: none;
+			min-width: 30px;
+			min-height: 30px;
+
+			display: grid;
+			place-items: center;
+
+			+ li {
+				margin-left: 6px;
+			}
+
+			a {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				cursor: pointer;
+				min-width: 30px;
+				min-height: 30px;
+				padding: 6px 12px;
+				transition: color 0.3s ease-in-out;
+			}
+
+			&:hover {
+				color: #fddb00;
+				transition: color 0.3s ease-in-out;
+
+				path {
+					fill: #fff;
+				}
+			}
+		}
+
+		.previous {
+			transform: rotate(180deg);
+		}
+
+		.active-page {
+			background-color: #212121;
+			border: 2px solid #fddb00;
+			color: #fddb00;
+			font-weight: 700;
+			border-radius: 3px;
+		}
+
+		.disabled-page {
+			path {
+				fill: #212121;
+				stroke: rgba(255, 255, 255, 0.5);
+				stroke-width: 2px;
+			}
+			&:hover {
+				a {
+					cursor: default;
+				}
+				path {
+					fill: #212121;
+					stroke: rgba(255, 255, 255, 0.5);
+					stroke-width: 2px;
+				}
+			}
+		}
+	}
 `
 
 export const Header = styled.header`
@@ -112,6 +184,8 @@ export const PhotoContainer = styled.div`
 			border-radius: 3px;
 			background-color: #fddb00;
 			color: #212121;
+
+			z-index: 999;
 
 			h4 {
 				text-align: center;
