@@ -80,22 +80,22 @@ export default function Cases() {
 								<div
 									key={photo.id}
 									className='item'
-									onMouseMove={e => {
-										const itemDescription =
-											document.querySelectorAll('.description')
+									// onMouseMove={e => {
+									// 	const itemDescription =
+									// 		document.querySelectorAll('.description')
 
-										let x = e.clientX
-										let y = e.clientY
+									// 	let x = e.clientX
+									// 	let y = e.clientY
 
-										for (let each of itemDescription) {
-											each.style.left = x + 'px'
-											each.style.top = y + 'px'
-										}
-									}}
+									// 	for (let each of itemDescription) {
+									// 		each.style.left = x + 'px'
+									// 		each.style.top = y + 'px'
+									// 	}
+									// }}
 								>
 									<img
 										src={`http://localhost:1337${photo.image.formats.small.url}`}
-										alt={`imagem de`}
+										alt={photo.title}
 									/>
 									<span className='description'>
 										<h4>{photo.title}</h4>

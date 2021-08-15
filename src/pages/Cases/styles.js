@@ -157,13 +157,14 @@ export const PhotoContainer = styled.div`
 	margin-top: 60px;
 
 	.item {
+		position: relative;
 		width: 250px;
 		height: 250px;
 		border-radius: 3px;
 		overflow: hidden;
 
 		&:hover .description {
-			display: flex;
+			bottom: 0;
 		}
 
 		img {
@@ -172,7 +173,8 @@ export const PhotoContainer = styled.div`
 
 		.description {
 			position: absolute;
-			display: none;
+			bottom: -110px;
+			left: 0;
 			flex-direction: column;
 			justify-content: space-around;
 			align-items: center;
@@ -190,6 +192,7 @@ export const PhotoContainer = styled.div`
 			h4 {
 				position: absolute;
 				top: 0;
+				left: 0;
 
 				display: flex;
 				justify-content: center;
@@ -210,6 +213,8 @@ export const PhotoContainer = styled.div`
 			.hashtag {
 				position: absolute;
 				bottom: 0;
+				left: 0;
+				right: 0;
 
 				width: 100%;
 				height: 60px;
