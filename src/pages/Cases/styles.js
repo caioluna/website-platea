@@ -16,7 +16,7 @@ export const Container = styled(motion.main)`
 	justify-content: center;
 
 	overflow: hidden;
-	color: fff;
+	color: #fff;
 `
 
 export const Content = styled.section`
@@ -39,9 +39,81 @@ export const Content = styled.section`
 			font-size: 64px;
 			line-height: 40px;
 			text-align: center;
-			font-family: 'DINAlternateBlack';
+			font-family: 'DINAlternateBlack', sans-serif;
 			color: #fddb00;
 			transform: rotate(-90deg);
+		}
+	}
+
+	.pagination {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		margin-top: 40px;
+
+		li {
+			list-style: none;
+			min-width: 30px;
+			min-height: 30px;
+
+			display: grid;
+			place-items: center;
+
+			+ li {
+				margin-left: 6px;
+			}
+
+			a {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				cursor: pointer;
+				min-width: 30px;
+				min-height: 30px;
+				padding: 6px 12px;
+				transition: color 0.3s ease-in-out;
+			}
+
+			&:hover {
+				color: #fddb00;
+				transition: color 0.3s ease-in-out;
+
+				path {
+					fill: #fff;
+				}
+			}
+		}
+    
+		.previous {
+			transform: rotate(180deg);
+		}
+
+		.active-page {
+			background-color: #212121;
+			border: 2px solid #fddb00;
+			color: #fddb00;
+			font-weight: 700;
+			border-radius: 3px;
+		}
+
+		.disabled-page {
+			path {
+				fill: #212121;
+				stroke: rgba(255, 255, 255, 0.5);
+				stroke-width: 2px;
+			}
+			&:hover {
+				a {
+					cursor: default;
+				}
+				path {
+					fill: #212121;
+					stroke: rgba(255, 255, 255, 0.5);
+					stroke-width: 2px;
+				}
+			}
 		}
 	}
 `
@@ -56,50 +128,37 @@ export const Header = styled.header`
 	width: 100%;
 	height: 50px;
 
-	form {
-		width: 400px;
+	label {
+		position: relative;
+		height: 40px;
 
-		label {
-			position: relative;
-			height: 40px;
+		input {
+			width: 400px;
+			height: inherit;
+			border-radius: 3px;
 
-			input {
-				width: 318px;
-				height: inherit;
-				border-radius: 6px 0 0 6px;
+			background-color: #212121;
+			border: 1px solid #fddb00;
+			color: #fff;
+			padding: 12px 20px;
 
-				background-color: #212121;
-				border: 1px solid #b0b0b0;
-				border-right: 0;
-				color: #fff;
-				padding: 12px 20px;
-
-				&::placeholder {
-					color: #b0b0b0;
-				}
-			}
-
-			button {
-				width: 80px;
-				height: inherit;
-
-				border-radius: 0 6px 6px 0;
-				background-color: #fddb00;
-				color: #2f2f2f;
+			&::placeholder {
+				color: #b0b0b0;
 			}
 		}
 	}
 `
 
-export const Jobs = styled.div`
+export const PhotoContainer = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	gap: 10px;
-	margin-top: 80px;
+	height: 500px;
+	margin-top: 60px;
 
 	.item {
-		width: 200px;
-		height: 200px;
+		width: 250px;
+		height: 250px;
 		border-radius: 3px;
 		overflow: hidden;
 
@@ -125,6 +184,8 @@ export const Jobs = styled.div`
 			border-radius: 3px;
 			background-color: #fddb00;
 			color: #212121;
+
+			z-index: 999;
 
 			h4 {
 				position: absolute;
