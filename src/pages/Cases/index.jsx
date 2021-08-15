@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { gql, useQuery } from '@apollo/client'
 import ReactPaginate from 'react-paginate'
 

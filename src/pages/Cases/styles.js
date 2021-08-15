@@ -85,7 +85,7 @@ export const Content = styled.section`
 				}
 			}
 		}
-    
+
 		.previous {
 			transform: rotate(180deg);
 		}
