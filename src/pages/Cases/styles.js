@@ -85,7 +85,7 @@ export const Content = styled.section`
 				}
 			}
 		}
-
+    
 		.previous {
 			transform: rotate(180deg);
 		}
@@ -188,15 +188,33 @@ export const PhotoContainer = styled.div`
 			z-index: 999;
 
 			h4 {
-				text-align: center;
-				width: 100px;
+				position: absolute;
+				top: 0;
+
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				width: 100%;
+				height: 40px;
+				padding: 8px;
+
 				font-weight: 400;
 				font-size: 14px;
-				line-height: 20px;
-				margin-bottom: 15px;
+				line-height: 28px;
+
+				color: #fff;
+				background-color: #212121;
 			}
 
 			.hashtag {
+				position: absolute;
+				bottom: 0;
+
+				width: 100%;
+				height: 60px;
+				padding: 8px;
+
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: center;
@@ -205,10 +223,10 @@ export const PhotoContainer = styled.div`
 
 				.hash {
 					background-color: #212121;
-					color: #fff;
-					font-size: 12px;
+					color: #fddb00;
+					font-size: 10px;
 					padding: 2px 6px;
-					border-radius: 3px;
+					border-radius: 2px;
 
 					> .hash {
 						margin-right: 8px;
