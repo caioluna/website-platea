@@ -2,13 +2,19 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
 	position: fixed;
-	bottom: 50px;
+	bottom: 0;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	width: 100vw;
-	height: 40px;
+	height: 100px;
+	padding: 10px;
 	z-index: 9999;
+
+	&.scrolling {
+		background-color: #121212;
+		height: 60px;
+	}
 `
 
 export const Content = styled.div`

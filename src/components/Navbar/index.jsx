@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
+
 import { NavLink } from 'react-router-dom'
 import { Container, Content, Nav } from './styles'
 
@@ -14,16 +16,31 @@ export default function Navbar() {
 	useEffect(() => {
 		const menuTimer = setInterval(() => {
 			setOpenMenu(false)
-		}, 6000)
+		}, 8000)
 		return () => clearInterval(menuTimer)
 	}, [openMenu])
+
+	const menuVariant = {
+		hover: {
+			scale: 1.2,
+			transition: {
+				yoyo: Infinity,
+			},
+		},
+	}
 
 	return (
 		<Container>
 			<Content>
 				<div className='logo'>
 					<button onClick={handleOpenCloseMenu}>
-						<img src={plateaCircleLogo} alt='Platea Logo' />
+						<motion.img
+							animate={{}}
+							variants={menuVariant}
+							// whileHover='hover'
+							src={plateaCircleLogo}
+							alt='Platea Logo'
+						/>
 					</button>
 					<Nav>
 						<ul>

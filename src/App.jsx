@@ -1,4 +1,4 @@
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 
@@ -20,13 +20,15 @@ const client = new ApolloClient({
 })
 
 export default function App() {
+	const location = useLocation()
+
 	return (
 		<>
 			<Navbar />
 
 			<AnimatePresence>
 				<ApolloProvider client={client}>
-					<Switch>
+					<Switch location={location}>
 						<Route path='/' component={Home} exact />
 						<Route path='/about' component={About} exact />
 						<Route path='/services' component={Services} exact />

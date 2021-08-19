@@ -15,7 +15,7 @@ export const Container = styled(motion.main)`
 	align-items: flex-start;
 	justify-content: center;
 
-	overflow: hidden;
+	/* overflow: hidden; */
 	color: #fff;
 `
 

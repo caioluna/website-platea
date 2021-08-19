@@ -24,9 +24,7 @@ export const Content = styled.section`
 
 	.hero-logo {
 		position: absolute;
-		left: 0;
-
-		transform: rotate(-90deg);
-		width: 35vw;
+		left: 165px;
+		width: 150px;
 	}
 `
