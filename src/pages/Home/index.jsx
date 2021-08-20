@@ -11,7 +11,7 @@ export default function Home() {
 			pathSpacing: [0.5, 1],
 			pathLength: [0, 1],
 			fillOpacity: [0, 0, 0, 0, 0, 1],
-			strokeWidth: [6, 6, 3, 0],
+			strokeWidth: [6, 6, 6, 0],
 			transition: {
 				delay: 0.3,
 				duration: 2.5,
