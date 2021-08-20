@@ -33,10 +33,10 @@ const Background = styled.div`
 	width: 100vw;
 	height: 100vh;
 	overflow: hidden;
+	z-index: -999;
 
 	.geoform {
 		position: absolute;
-		z-index: -999;
 		transform: rotate(120deg);
 	}
 
