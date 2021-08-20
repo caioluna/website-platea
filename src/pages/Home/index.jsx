@@ -13,7 +13,7 @@ export default function Home() {
 			fillOpacity: [0, 0, 0, 0, 0, 1],
 			strokeWidth: [6, 6, 6, 0],
 			transition: {
-				delay: 0.3,
+				delay: 0.5,
 				duration: 2.5,
 				ease: 'easeInOut',
 			},
@@ -42,7 +42,6 @@ export default function Home() {
 						fill='#FDDB00'
 						stroke='#FDDB00'
 						strokeWidth='6'
-						stroke-linecap='square'
 						variants={pathVariant}
 					/>
 					<motion.path
@@ -50,7 +49,6 @@ export default function Home() {
 						fill='#FDDB00'
 						stroke='#FDDB00'
 						strokeWidth='6'
-						stroke-linecap='square'
 						variants={pathVariant}
 					/>
 					<motion.path
@@ -58,7 +56,6 @@ export default function Home() {
 						fill='#FDDB00'
 						stroke='#FDDB00'
 						strokeWidth='6'
-						stroke-linecap='square'
 						variants={pathVariant}
 					/>
 					<motion.path
@@ -66,7 +63,6 @@ export default function Home() {
 						fill='#FDDB00'
 						stroke='#FDDB00'
 						strokeWidth='6'
-						stroke-linecap='square'
 						variants={pathVariant}
 					/>
 					<motion.path
@@ -74,7 +70,6 @@ export default function Home() {
 						fill='#FDDB00'
 						stroke='#FDDB00'
 						strokeWidth='6'
-						stroke-linecap='square'
 						variants={pathVariant}
 					/>
 					<motion.path
@@ -82,7 +77,6 @@ export default function Home() {
 						fill='#FDDB00'
 						stroke='#FDDB00'
 						strokeWidth='6'
-						stroke-linecap='square'
 						variants={pathVariant}
 					/>
 				</motion.svg>
