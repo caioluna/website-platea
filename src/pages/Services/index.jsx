@@ -1,4 +1,6 @@
 import React from 'react'
+import { motion } from 'framer-motion'
+
 import CloseButton from '../../components/CloseButton'
 import BoxItem from '../../components/Box'
 import GeoForm from '../../components/GeoForm'
@@ -12,7 +14,12 @@ import createIcon from '../../assets/palette-solid.svg'
 
 export default function Services() {
 	return (
-		<Container>
+		<Container
+			as={motion.main}
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			exit={{ opacity: 0 }}
+		>
 			<CloseButton />
 			<GeoForm />
 			<Content>

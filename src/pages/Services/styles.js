@@ -27,8 +27,9 @@ export const Content = styled.div`
 	}
 
 	.box-wrapper {
-		display: grid;
-		justify-items: center;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
 
 		grid-template-columns: repeat(4, 1fr);
 	}
