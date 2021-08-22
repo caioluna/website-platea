@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
 
 import { NavLink } from 'react-router-dom'
 import { Container, Content, Nav } from './styles'
@@ -10,6 +10,7 @@ export default function Navbar() {
 	const [openMenu, setOpenMenu] = useState(false)
 
 	const handleOpenCloseMenu = () => {
+		console.log('opened')
 		setOpenMenu(!openMenu)
 	}
 
@@ -20,49 +21,67 @@ export default function Navbar() {
 		return () => clearInterval(menuTimer)
 	}, [openMenu])
 
-	const menuVariant = {
-		hover: {
-			scale: 1.2,
-			transition: {
-				yoyo: Infinity,
-			},
-		},
-	}
-
 	return (
 		<Container>
 			<Content>
-				<div className='logo'>
-					<button onClick={handleOpenCloseMenu}>
-						<motion.img
-							animate={{}}
-							variants={menuVariant}
-							// whileHover='hover'
-							src={plateaCircleLogo}
-							alt='Platea Logo'
-						/>
-					</button>
-					<Nav>
-						<ul>
-							<div id='left' className={openMenu ? 'open' : ''}>
-								<li>
-									<NavLink to='/about'>Sobre</NavLink>
-								</li>
-								<li>
-									<NavLink to='/services'>Serviços</NavLink>
-								</li>
-							</div>
-							<div id='right' className={openMenu ? 'open' : ''}>
-								<li>
-									<NavLink to='/cases'>Cases</NavLink>
-								</li>
-								<li>
-									<NavLink to='/contact'>Contato</NavLink>
-								</li>
-							</div>
-						</ul>
-					</Nav>
-				</div>
+				<AnimateSharedLayout>
+					<div className='logo'>
+						<motion.button
+							layout
+							onClick={handleOpenCloseMenu}
+							whileHover={{ scale: 1.2 }}
+							whileTap={{ scale: 0.9 }}
+						>
+							<img src={plateaCircleLogo} alt='Platea Logo' />
+						</motion.button>
+						<Nav>
+							<ul>
+								<div id='left'>
+									<AnimatePresence exitBeforeEnter>
+										{openMenu && (
+											<motion.div
+												className='wrap'
+												layout
+												initial={{ x: 180, opacity: 0 }}
+												animate={{ x: -45, opacity: 1 }}
+												exit={{ x: 180, opacity: 0 }}
+												transition={{ type: 'spring', damping: 16 }}
+											>
+												<li>
+													<NavLink to='/about'>Sobre</NavLink>
+												</li>
+												<li>
+													<NavLink to='/services'>Serviços</NavLink>
+												</li>
+											</motion.div>
+										)}
+									</AnimatePresence>
+								</div>
+								<div id='right'>
+									<AnimatePresence exitBeforeEnter>
+										{openMenu && (
+											<motion.div
+												className='wrap'
+												layout
+												initial={{ x: -180, opacity: 0 }}
+												animate={{ x: 45, opacity: 1 }}
+												exit={{ x: -180, opacity: 0 }}
+												transition={{ type: 'spring', damping: 16 }}
+											>
+												<li>
+													<NavLink to='/cases'>Cases</NavLink>
+												</li>
+												<li>
+													<NavLink to='/contact'>Contato</NavLink>
+												</li>
+											</motion.div>
+										)}
+									</AnimatePresence>
+								</div>
+							</ul>
+						</Nav>
+					</div>
+				</AnimateSharedLayout>
 			</Content>
 		</Container>
 	)

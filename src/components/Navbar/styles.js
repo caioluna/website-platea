@@ -44,12 +44,16 @@ export const Nav = styled.nav`
 
 	ul {
 		display: flex;
+		justify-content: center;
 		list-style: none;
+
+		height: 25px;
+		width: 500px;
 
 		#left,
 		#right {
 			overflow: hidden;
-			width: 200px;
+			width: 240px;
 
 			li a {
 				transition: all 0.3s ease-in-out;
@@ -66,17 +70,17 @@ export const Nav = styled.nav`
 			justify-content: flex-end;
 			margin-right: 30px;
 
-			li {
+			/* li {
 				opacity: 0;
 				transform: translateX(180px) scale(0);
 				transition: all 0.5s ease;
-			}
+			} */
 
-			&.open > li {
+			/* &.open > li {
 				opacity: 1;
 				transform: translateX(-45px) scale(1);
 				transition: all 0.5s ease;
-			}
+			} */
 		}
 
 		#right {
@@ -84,17 +88,17 @@ export const Nav = styled.nav`
 			justify-content: flex-start;
 			margin-left: 30px;
 
-			li {
+			/* li {
 				opacity: 0;
 				transform: translateX(-180px) scale(0);
 				transition: all 0.5s ease;
-			}
+			} */
 
-			&.open > li {
+			/* &.open > li {
 				opacity: 1;
 				transform: translateX(45px) scale(1);
 				transition: all 0.5s ease;
-			}
+			} */
 		}
 
 		li {
@@ -112,5 +116,8 @@ export const Nav = styled.nav`
 				margin-left: 20px;
 			}
 		}
+	}
+	.wrap {
+		display: flex;
 	}
 `
