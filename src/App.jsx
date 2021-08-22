@@ -26,7 +26,7 @@ export default function App() {
 		<>
 			<Navbar />
 
-			<AnimatePresence>
+			<AnimatePresence exitBeforeEnter>
 				<ApolloProvider client={client}>
 					<Switch location={location}>
 						<Route path='/' component={Home} exact />
