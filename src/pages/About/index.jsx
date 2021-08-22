@@ -20,7 +20,7 @@ export default function About() {
 					className='page-title'
 					initial={{ opacity: 0, y: 300 }}
 					animate={{ opacity: 1, y: 0 }}
-					transition={{ delay: 0.5, type: 'spring', stiffness: 60 }}
+					transition={{ delay: 0.2, stiffness: 1000 }}
 				>
 					A agência
 				</motion.h1>
@@ -29,7 +29,7 @@ export default function About() {
 						<motion.p
 							initial={{ opacity: 0, x: 300 }}
 							animate={{ opacity: 1, x: 0 }}
-							transition={{ delay: 0.6, type: 'spring', stiffness: 60 }}
+							transition={{ delay: 0.3, stiffness: 1000 }}
 						>
 							Cativar mentes e corações. Entreter, seduzir, engajar. Nosso
 							objetivo aqui é ajudar você, sua marca, seu serviço, seu produto a
@@ -40,13 +40,13 @@ export default function About() {
 						<motion.p
 							initial={{ opacity: 0, x: 300 }}
 							animate={{ opacity: 1, x: 0 }}
-							transition={{ delay: 0.7, type: 'spring', stiffness: 60 }}
+							transition={{ delay: 0.4, stiffness: 1000 }}
 						>
-							Uma agência de comunicação e promoções especializada em criação e
-							gestão de logística de press kits, brindes e criação de campanhas
-							visuais. Nosso comprometimento é com o seu sucesso e por isso
-							trabalhamos com seriedade, prezando sempre pela honestidade nas
-							nossas relações.
+							Somos uma agência de comunicação e promoções especializada em
+							criação e gestão de logística de press kits, brindes e criação de
+							campanhas visuais. Nosso comprometimento é com o seu sucesso e por
+							isso trabalhamos com seriedade, prezando sempre pela honestidade
+							nas nossas relações.
 						</motion.p>
 					</div>
 				</Text>
