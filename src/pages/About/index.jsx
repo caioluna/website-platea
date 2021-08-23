@@ -11,7 +11,7 @@ export default function About() {
 		<Container
 			as={motion.main}
 			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
+			animate={{ opacity: 1, transition: { ease: 'easeInOut', duration: 0.5 } }}
 			exit={{ opacity: 0 }}
 		>
 			<CloseButton />
@@ -20,7 +20,7 @@ export default function About() {
 					className='page-title'
 					initial={{ opacity: 0, y: 300 }}
 					animate={{ opacity: 1, y: 0 }}
-					transition={{ delay: 0.2, stiffness: 1000 }}
+					transition={{ delay: 0.3, type: 'spring', duration: 0.5 }}
 				>
 					A agência
 				</motion.h1>
@@ -29,7 +29,7 @@ export default function About() {
 						<motion.p
 							initial={{ opacity: 0, x: 300 }}
 							animate={{ opacity: 1, x: 0 }}
-							transition={{ delay: 0.3, stiffness: 1000 }}
+							transition={{ delay: 0.5, type: 'spring', duration: 0.5 }}
 						>
 							Cativar mentes e corações. Entreter, seduzir, engajar. Nosso
 							objetivo aqui é ajudar você, sua marca, seu serviço, seu produto a
@@ -40,7 +40,7 @@ export default function About() {
 						<motion.p
 							initial={{ opacity: 0, x: 300 }}
 							animate={{ opacity: 1, x: 0 }}
-							transition={{ delay: 0.4, stiffness: 1000 }}
+							transition={{ delay: 0.6, type: 'spring', duration: 0.5 }}
 						>
 							Somos uma agência de comunicação e promoções especializada em
 							criação e gestão de logística de press kits, brindes e criação de

@@ -14,7 +14,7 @@ export default function GeoForm() {
 				alt='Geometric background left form'
 				initial={{ x: -500, rotate: 120 }}
 				animate={{ x: 0 }}
-				transition={{ stiffness: 1000 }}
+				transition={{ type: 'spring', duration: 0.5 }}
 			/>
 			<motion.img
 				className='geoform right'
@@ -22,7 +22,7 @@ export default function GeoForm() {
 				alt='Geometric background right form'
 				initial={{ x: 300, rotate: 120 }}
 				animate={{ x: 0 }}
-				transition={{ delay: 0.1, stiffness: 1000 }}
+				transition={{ type: 'spring', duration: 0.5 }}
 			/>
 		</Background>
 	)

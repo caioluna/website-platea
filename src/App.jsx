@@ -1,5 +1,5 @@
 import { Switch, Route, useLocation } from 'react-router-dom'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 
 import { GlobalStyle } from './styles/global'
@@ -26,18 +26,20 @@ export default function App() {
 		<>
 			<Navbar />
 
-			<AnimatePresence exitBeforeEnter>
-				<ApolloProvider client={client}>
-					<Switch location={location}>
-						<Route path='/' component={Home} exact />
-						<Route path='/about' component={About} exact />
-						<Route path='/services' component={Services} exact />
-						<Route path='/cases' component={Cases} exact />
-						<Route path='/contact' component={Contact} exact />
-						<Route path='*' component={PageNotFound} exact />
-					</Switch>
-				</ApolloProvider>
-			</AnimatePresence>
+			<AnimateSharedLayout type='crossfade'>
+				<AnimatePresence exitBeforeEnter>
+					<ApolloProvider client={client}>
+						<Switch location={location}>
+							<Route path='/' component={Home} exact />
+							<Route path='/about' component={About} exact />
+							<Route path='/services' component={Services} exact />
+							<Route path='/cases' component={Cases} exact />
+							<Route path='/contact' component={Contact} exact />
+							<Route path='*' component={PageNotFound} exact />
+						</Switch>
+					</ApolloProvider>
+				</AnimatePresence>
+			</AnimateSharedLayout>
 
 			<GlobalStyle />
 		</>
