@@ -1,4 +1,4 @@
-import { AnimateSharedLayout, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import { Container } from './styles'
 
@@ -8,16 +8,14 @@ export default function BoxItem({ icon, description, title, variants }) {
 	const showVariants = {
 		hide: {
 			opacity: 0,
-			// y: 0,
 			zIndex: -1,
 		},
 		show: {
 			opacity: 1,
-			// y: 75,
 			zIndex: 1,
 			transition: {
 				type: 'spring',
-				duration: 1,
+				duration: 0.5,
 			},
 		},
 	}
@@ -27,8 +25,9 @@ export default function BoxItem({ icon, description, title, variants }) {
 			borderColor: 'rgba(255,255,255,0.2)',
 		},
 		show: {
+			duration: 1,
 			height: 280,
-			scale: 1.3,
+			// scale: 1.3,
 			borderColor: 'rgba(255,255,255,1)',
 		},
 	}
@@ -46,20 +45,17 @@ export default function BoxItem({ icon, description, title, variants }) {
 	return (
 		<Container variants={variants}>
 			<motion.div
-				// layout
 				className='box'
 				variants={boxVariants}
 				initial={false}
 				animate={show ? 'show' : 'hide'}
-				exit='end'
 				whileHover='show'
-				whileTap='show'
 			>
 				<motion.h4 variants={boxContentVariants}>{title}</motion.h4>
 				<motion.img
+					variants={boxContentVariants}
 					src={icon}
 					alt={title + ' icon'}
-					variants={boxContentVariants}
 				/>
 				<motion.span variants={showVariants}>{description}</motion.span>
 			</motion.div>
