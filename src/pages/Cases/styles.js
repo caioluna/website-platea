@@ -45,7 +45,7 @@ export const Content = styled.section`
 		}
 	}
 
-	.pagination {
+	/* .pagination {
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -115,7 +115,7 @@ export const Content = styled.section`
 				}
 			}
 		}
-	}
+	} */
 `
 
 export const Header = styled.header`
@@ -149,7 +149,7 @@ export const Header = styled.header`
 	}
 `
 
-export const PhotoContainer = styled.div`
+export const PhotoContainer = styled(motion.div)`
 	display: flex;
 	flex-wrap: wrap;
 	gap: 10px;

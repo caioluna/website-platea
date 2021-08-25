@@ -2,16 +2,11 @@ import { motion } from 'framer-motion'
 import React, { useState } from 'react'
 import { gql, useQuery } from '@apollo/client'
 
+import Loading from '../../components/Loading'
 import CloseButton from '../../components/CloseButton'
 import GeoForm from '../../components/GeoForm'
 
-import {
-	Container,
-	Content,
-	Header,
-	Loading,
-	PhotoContainer,
-} from '../Cases/styles'
+import { Container, Content, Header, PhotoContainer } from '../Cases/styles'
 
 const PHOTOS = gql`
 	{
@@ -26,17 +21,70 @@ const PHOTOS = gql`
 		}
 	}
 `
+const container = {
+	show: {
+		transition: {
+			delayChildren: 0.4,
+			staggerChildren: 0.2,
+		},
+	},
+}
+
+const photoVariants = {
+	hidden: {
+		opacity: 0,
+		y: 50,
+	},
+	show: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			type: 'spring',
+			duration: 1,
+		},
+	},
+}
+
+const titleVariants = {
+	hidden: {
+		opacity: 0,
+		x: 300,
+		rotate: -90,
+	},
+	show: {
+		opacity: 1,
+		x: 0,
+		transition: {
+			type: 'spring',
+			duration: 1,
+		},
+	},
+}
+
+const inputVariants = {
+	hidden: {
+		opacity: 0,
+		x: -300,
+	},
+	show: {
+		opacity: 1,
+		x: 0,
+		transition: {
+			type: 'spring',
+			duration: 1,
+		},
+	},
+}
 
 export default function Cases() {
 	const { loading, error, data } = useQuery(PHOTOS)
 	const [searchWord, setSearchWord] = useState('')
 
-	if (loading) return <Loading>Loading...</Loading>
+	if (loading) return <Loading />
 	if (error) return console.log(error)
 
 	return (
 		<Container
-			as={motion.main}
 			initial={{ opacity: 0 }}
 			animate={{ opacity: 1, transition: { ease: 'easeInOut', duration: 0.5 } }}
 			exit={{ opacity: 0 }}
@@ -46,7 +94,12 @@ export default function Cases() {
 			<GeoForm />
 			<Content>
 				<Header>
-					<label htmlFor='searchField'>
+					<motion.label
+						variants={inputVariants}
+						initial='hidden'
+						animate='show'
+						htmlFor='searchField'
+					>
 						<input
 							value={searchWord}
 							onChange={event => setSearchWord(event.target.value)}
@@ -54,12 +107,14 @@ export default function Cases() {
 							type='text'
 							placeholder='Filtrar por tags...'
 						/>
-					</label>
+					</motion.label>
 				</Header>
 				<div className='title-wrapper'>
-					<h1>Cases</h1>
+					<motion.h1 variants={titleVariants} initial='hidden' animate='show'>
+						Cases
+					</motion.h1>
 				</div>
-				<PhotoContainer>
+				<PhotoContainer variants={container} initial='hidden' animate='show'>
 					{data.photos
 						.filter(value => {
 							if (searchWord === '') return value
@@ -67,7 +122,11 @@ export default function Cases() {
 						})
 						.map(photo => {
 							return (
-								<div key={photo.id} className='item'>
+								<motion.div
+									key={photo.id}
+									className='item'
+									variants={photoVariants}
+								>
 									<img
 										src={`http://localhost:1337${photo.image.formats.small.url}`}
 										alt={photo.title}
@@ -84,7 +143,7 @@ export default function Cases() {
 											})}
 										</div>
 									</span>
-								</div>
+								</motion.div>
 							)
 						})}
 				</PhotoContainer>
