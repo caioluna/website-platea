@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
@@ -9,7 +10,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import About from './pages/About'
 import Cases from './pages/Cases'
-import Contact from './pages/Contact'
+import ContactModal from './components/ContactModal'
 import Services from './pages/Services'
 
 import PageNotFound from './pages/PageNotFound'
@@ -20,11 +21,16 @@ const client = new ApolloClient({
 })
 
 export default function App() {
+	const [isContactModalOpen, setIsContentModalOpen] = useState(false)
+
+	const handleCloseContactModal = () => setIsContentModalOpen(false)
+	const handleOpenContactModal = () => setIsContentModalOpen(true)
+
 	const location = useLocation()
 
 	return (
 		<>
-			<Navbar />
+			<Navbar openModal={handleOpenContactModal} />
 
 			<AnimateSharedLayout type='crossfade'>
 				<AnimatePresence exitBeforeEnter>
@@ -34,12 +40,16 @@ export default function App() {
 							<Route path='/about' component={About} exact />
 							<Route path='/services' component={Services} exact />
 							<Route path='/cases' component={Cases} exact />
-							<Route path='/contact' component={Contact} exact />
 							<Route path='*' component={PageNotFound} exact />
 						</Switch>
 					</ApolloProvider>
 				</AnimatePresence>
 			</AnimateSharedLayout>
+			<ContactModal
+				isOpen={isContactModalOpen}
+				onRequestClose={handleCloseContactModal}
+				handleCloseContactModal={handleCloseContactModal}
+			/>
 
 			<GlobalStyle />
 		</>

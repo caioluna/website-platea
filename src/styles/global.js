@@ -19,10 +19,17 @@ export const GlobalStyle = createGlobalStyle`
   body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(180deg, #212121 0%, #212121 100%);
-background: radial-gradient(60% 150% at 50% 100%, #212121 0%, #000000 100%);
+    background: radial-gradient(60% 150% at 50% 100%, #212121 0%, #000000 100%);
 
     font-size: 14px;
     font-weight: 400;
     overflow-x: hidden;
+  }
+
+  .react-modal-overlay {
+    position: fixed;
+    inset: 0px;
+    background-color: rgba(0, 0, 0, 0.98);
+    z-index: 9999;
   }
 `

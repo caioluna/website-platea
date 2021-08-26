@@ -55,8 +55,10 @@ export const Nav = styled.nav`
 			overflow: hidden;
 			width: 240px;
 
-			li a {
+			li a,
+			button {
 				transition: all 0.3s ease-in-out;
+				cursor: pointer;
 
 				&:hover {
 					color: #fddb00;
@@ -104,7 +106,10 @@ export const Nav = styled.nav`
 		li {
 			padding: 2px 11px;
 
-			a {
+			a,
+			button {
+				font-family: 'Poppins', sans-serif;
+				font-size: 14px;
 				color: #fff;
 
 				&:active {

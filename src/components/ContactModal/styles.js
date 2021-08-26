@@ -1,27 +1,14 @@
-import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
-export const Container = styled(motion.section)`
-	width: 100vw;
-	height: 100vh;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-
-	background-color: rgba(0, 0, 0, 0.1);
-`
-
-export const Content = styled.div`
-	width: 1040px;
-	height: 100vh;
-
-	display: flex;
-	justify-content: center;
-	align-items: center;
-`
-
 export const ContactBox = styled.div`
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	margin: auto;
+
 	display: grid;
 	grid-template-columns: 1fr 2fr;
 
@@ -58,7 +45,9 @@ export const ContactBox = styled.div`
 			position: absolute;
 			top: 20px;
 			right: 20px;
-			color: #fddb00;
+
+			background-color: transparent;
+			cursor: pointer;
 		}
 
 		.form-area {
@@ -83,11 +72,14 @@ export const ContactBox = styled.div`
 			justify-content: center;
 			flex-direction: column;
 
+			input {
+				height: 35px;
+			}
+
 			input,
 			textarea {
 				width: 100%;
 				padding: 8px 40px;
-				margin-bottom: 18px;
 
 				font-size: 14px;
 				font-family: 'Poppins', sans-serif;
@@ -99,6 +91,21 @@ export const ContactBox = styled.div`
 
 				&::placeholder {
 					color: #aeaeae;
+				}
+			}
+
+			label {
+				position: relative;
+				margin-bottom: 18px;
+
+				.icon svg {
+					position: absolute;
+					top: 8px;
+					left: 10px;
+					margin: auto;
+
+					width: 20px;
+					height: 20px;
 				}
 			}
 

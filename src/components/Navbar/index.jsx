@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
-import { NavLink } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { Container, Content, Nav } from './styles'
 
 import plateaCircleLogo from '../../assets/platea_circle_logo.svg'
 
-export default function Navbar() {
+export default function Navbar({ openModal }) {
 	const [isOpen, setOpenMenu] = useState(false)
 
 	const handleOpenCloseMenu = () => {
@@ -68,7 +68,7 @@ export default function Navbar() {
 												<NavLink to='/cases'>Cases</NavLink>
 											</li>
 											<li>
-												<NavLink to='/contact'>Contato</NavLink>
+												<button onClick={openModal}>Contato</button>
 											</li>
 										</motion.div>
 									)}
