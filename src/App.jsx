@@ -17,7 +17,7 @@ import Services from './pages/Services'
 import PageNotFound from './pages/PageNotFound'
 
 const client = new ApolloClient({
-	uri: 'http://localhost:1337/graphql',
+	uri: 'https://strapi-3v35.onrender.com/graphql',
 	cache: new InMemoryCache(),
 })
 

@@ -129,7 +129,7 @@ export default function Cases() {
 									variants={photoVariants}
 								>
 									<img
-										src={`http://localhost:1337${photo.image.formats.small.url}`}
+										src={`https://strapi-3v35.onrender.com${photo.image.formats.small.url}`}
 										alt={photo.title}
 									/>
 									<span className='description'>
