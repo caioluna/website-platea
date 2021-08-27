@@ -1,36 +1,48 @@
 import React from 'react'
 import Modal from 'react-modal'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 
-import { ContactBox } from './styles'
+import { ContactBox, ReactModalOverlay } from './styles'
 
 import { MdPerson, MdEmail, MdPhone, MdChat } from 'react-icons/md'
 
 Modal.setAppElement('#root')
 
 export default function ContactModal({ isOpen, onRequestClose }) {
-	const variants = {
-		hidden: {
-			x: -500,
-		},
-		show: {
-			x: 0,
-			transition: {
-				type: 'spring',
-				duration: 1,
-			},
-		},
-	}
-
 	return (
 		<Modal
 			isOpen={isOpen}
 			onRequestClose={onRequestClose}
 			className='ContactBox'
 			overlayClassName='react-modal-overlay'
+			as={motion.div}
+			inicital={{ opacity: 0 }}
+			animate={{ opacity: 1, transition: { duration: 1 } }}
+			exit={{ opacity: 0, transition: { duration: 1 } }}
 		>
-			<ContactBox>
-				<div className='left-side'>
+			<ContactBox
+				initial={{ opacity: 0, y: 100 }}
+				animate={{
+					opacity: 1,
+					y: 0,
+					transition: {
+						type: 'spring',
+						duration: 0.8,
+					},
+				}}
+				exit={{ opacity: 0, y: 100 }}
+			>
+				<motion.div
+					className='left-side'
+					initial={{ x: -500, opacity: 0 }}
+					animate={{
+						x: 0,
+						opacity: 1,
+						transition: {
+							stiffness: 10,
+						},
+					}}
+				>
 					<motion.svg
 						className='hero-logo'
 						width='154'
@@ -38,9 +50,15 @@ export default function ContactModal({ isOpen, onRequestClose }) {
 						viewBox='0 0 154 700'
 						fill='none'
 						xmlns='http://www.w3.org/2000/svg'
-						variants={variants}
-						initial='hidden'
-						animate='show'
+						initial={{ opacity: 0, x: -100 }}
+						animate={{
+							opacity: 1,
+							x: 0,
+							transition: {
+								delay: 0.1,
+								type: 'spring',
+							},
+						}}
 					>
 						<path
 							d='M96.0718 665.65L96.0718 668.65L99.0718 668.65L151 668.65L151 697L3 697L3 644.602C3 635.031 5.19478 627.032 9.44784 620.441C13.7774 613.732 19.4291 608.647 26.4656 605.115C33.5599 601.603 41.2497 599.828 49.5223 599.828C57.7383 599.828 65.3736 601.602 72.4697 605.139L72.4736 605.141C79.5364 608.649 85.2163 613.735 89.574 620.448C93.8522 627.039 96.0718 635.061 96.0718 644.626L96.0718 665.65ZM65.0609 668.65L68.0609 668.65L68.0609 665.65L68.0608 646.107C68.0608 642.613 67.2358 639.373 65.4483 636.554C63.7302 633.845 61.4531 631.736 58.5814 630.297C55.7848 628.895 52.7688 628.202 49.5766 628.202C46.382 628.202 43.3714 628.896 40.557 630.291C37.664 631.724 35.351 633.83 33.6235 636.554L33.6196 636.56L33.6157 636.567C31.8398 639.397 31.0109 642.605 31.0109 646.107L31.0109 665.65L31.0109 668.65L34.0109 668.65L65.0609 668.65Z'
@@ -73,7 +91,7 @@ export default function ContactModal({ isOpen, onRequestClose }) {
 							stroke='none'
 						/>
 					</motion.svg>
-				</div>
+				</motion.div>
 				<div className='right-side'>
 					<button onClick={onRequestClose} className='close'>
 						<svg

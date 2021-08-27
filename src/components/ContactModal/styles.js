@@ -1,6 +1,7 @@
+import { motion } from 'framer-motion'
 import styled from 'styled-components'
 
-export const ContactBox = styled.div`
+export const ContactBox = styled(motion.div)`
 	position: absolute;
 	top: 0;
 	bottom: 0;

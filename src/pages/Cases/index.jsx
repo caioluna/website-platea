@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import React, { useState } from 'react'
-import { gql, useQuery } from '@apollo/client'
+import { useQuery } from '@apollo/client'
 
 import Loading from '../../components/Loading'
 import CloseButton from '../../components/CloseButton'
@@ -8,19 +8,57 @@ import GeoForm from '../../components/GeoForm'
 
 import { Container, Content, Header, PhotoContainer } from '../Cases/styles'
 
-const PHOTOS = gql`
+import { PrismicLink } from 'apollo-link-prismic'
+import { InMemoryCache } from 'apollo-cache-inmemory'
+import ApolloClient from 'apollo-client'
+import gql from 'graphql-tag'
+
+const client = new ApolloClient({
+	link: PrismicLink({
+		uri: `${process.env.PRISMIC_ENDPOINT}/graphql`,
+		accessToken: process.env.PRISMIC_API_ACCESS_TOKEN,
+		repositoryName: 'photo',
+	}),
+	cache: new InMemoryCache(),
+})
+
+client
+	.query({
+		query: gql`
+			{
+				allPhotos {
+					edges {
+						node {
+							title
+							image
+							tags
+						}
+					}
+				}
+			}
+		`,
+	})
+	.then(response => {
+		console.log(response)
+	})
+	.catch(error => {
+		console.error(error)
+	})
+
+const PHOTO = gql`
 	{
-		photos {
-			id
-			title
-			description
-			tags
-			image {
-				formats
+		allPhotos {
+			edges {
+				node {
+					title
+					image
+					tags
+				}
 			}
 		}
 	}
 `
+
 const container = {
 	show: {
 		transition: {
@@ -76,10 +114,11 @@ const inputVariants = {
 	},
 }
 
-export default function Cases() {
-	const { loading, error, data } = useQuery(PHOTOS)
+export default function Cases({ client }) {
+	const { loading, error, data } = useQuery(PHOTO)
 	const [searchWord, setSearchWord] = useState('')
 
+	console.log(data)
 	if (loading) return <Loading />
 	if (error) return console.log(error)
 
@@ -115,7 +154,7 @@ export default function Cases() {
 					</motion.h1>
 				</div>
 				<PhotoContainer variants={container} initial='hidden' animate='show'>
-					{data.photos
+					{data
 						.filter(value => {
 							if (searchWord === '') return value
 							return value.tags.includes(searchWord.toLowerCase())
