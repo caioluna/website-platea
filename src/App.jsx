@@ -2,8 +2,7 @@ import { useState } from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 
-import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
-import { PrismicLink } from 'apollo-link-prismic'
+import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
 
 import { GlobalStyle } from './styles/global'
 
@@ -18,11 +17,7 @@ import Services from './pages/Services'
 import PageNotFound from './pages/PageNotFound'
 
 const client = new ApolloClient({
-	link: PrismicLink({
-		uri: `${process.env.PRISMIC_ENDPOINT}/graphql`,
-		accessToken: process.env.PRISMIC_API_ACCESS_TOKEN,
-		repositoryName: 'photo',
-	}),
+	uri: 'http://localhost:1337/graphql',
 	cache: new InMemoryCache(),
 })
 
