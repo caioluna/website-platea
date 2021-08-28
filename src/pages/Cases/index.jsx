@@ -25,7 +25,7 @@ const PHOTOS = gql`
 const container = {
 	show: {
 		transition: {
-			delayChildren: 0.4,
+			delayChildren: 0.8,
 			staggerChildren: 0.2,
 		},
 	},
@@ -77,7 +77,18 @@ const inputVariants = {
 	},
 }
 
+const descriptionVariants = {
+	hide: { bottom: -200 },
+	show: {
+		bottom: 0,
+		transition: {
+			duration: 0.4,
+		},
+	},
+}
+
 export default function Cases() {
+	const [show] = useState(false)
 	const { loading, error, data } = useQuery(PHOTOS)
 	const [searchWord, setSearchWord] = useState('')
 
@@ -132,18 +143,28 @@ export default function Cases() {
 										src={`https://strapi-3v35.onrender.com${photo.image.formats.small.url}`}
 										alt={photo.title}
 									/>
-									<span className='description'>
-										<h4>{photo.title}</h4>
-										<div className='hashtag'>
-											{photo.tags.split(',').map((tag, id) => {
-												return (
-													<span key={id} className='hash'>
-														#{tag.trim()}
-													</span>
-												)
-											})}
-										</div>
-									</span>
+									<motion.div
+										className='hover-container'
+										initial={false}
+										animate={show ? 'show' : 'hide'}
+										whileHover='show'
+									>
+										<motion.span
+											className='description'
+											variants={descriptionVariants}
+										>
+											<h4>{photo.title}</h4>
+											<div className='hashtag'>
+												{photo.tags.split(',').map((tag, id) => {
+													return (
+														<span key={id} className='hash'>
+															#{tag.trim()}
+														</span>
+													)
+												})}
+											</div>
+										</motion.span>
+									</motion.div>
 								</motion.div>
 							)
 						})}

@@ -163,17 +163,24 @@ export const PhotoContainer = styled(motion.div)`
 		border-radius: 3px;
 		overflow: hidden;
 
-		&:hover .description {
+		/* &:hover .description {
 			bottom: 0;
-		}
+		} */
 
 		img {
 			height: 100%;
 		}
 
+		.hover-container {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+
 		.description {
 			position: absolute;
-			bottom: -110px;
 			left: 0;
 			flex-direction: column;
 			justify-content: space-around;

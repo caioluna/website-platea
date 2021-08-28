@@ -27,7 +27,6 @@ export default function BoxItem({ icon, description, title, variants }) {
 		show: {
 			duration: 1,
 			height: 280,
-			// scale: 1.3,
 			borderColor: 'rgba(255,255,255,1)',
 		},
 	}

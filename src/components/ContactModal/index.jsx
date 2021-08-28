@@ -1,8 +1,8 @@
 import React from 'react'
 import Modal from 'react-modal'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 
-import { ContactBox, ReactModalOverlay } from './styles'
+import { ContactBox } from './styles'
 
 import { MdPerson, MdEmail, MdPhone, MdChat } from 'react-icons/md'
 
