@@ -162,13 +162,13 @@ export const PhotoContainer = styled(motion.div)`
 		height: 250px;
 		border-radius: 3px;
 		overflow: hidden;
-
-		/* &:hover .description {
-			bottom: 0;
-		} */
+		display: flex;
+		justify-content: center;
+		align-items: flex-start;
 
 		img {
-			height: 100%;
+			position: absolute;
+			width: 400px;
 		}
 
 		.hover-container {
@@ -235,7 +235,7 @@ export const PhotoContainer = styled(motion.div)`
 
 				.hash {
 					background-color: #212121;
-					color: #fddb00;
+					color: #fff;
 					font-size: 10px;
 					padding: 2px 6px;
 					border-radius: 2px;

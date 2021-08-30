@@ -30,6 +30,17 @@ export const Content = styled.div`
 		align-items: center;
 		justify-content: center;
 
+		.button-bg-animate {
+			position: absolute;
+			width: 40px;
+			height: 40px;
+			background-color: #fddb00aa;
+			background-color: #ffffff;
+			border-radius: 100%;
+			border-width: 5px;
+			z-index: 1;
+		}
+
 		button {
 			background: none;
 			display: flex;
@@ -41,13 +52,15 @@ export const Content = styled.div`
 
 export const Nav = styled.nav`
 	position: absolute;
+	border-radius: 3px;
 
 	ul {
 		display: flex;
 		justify-content: center;
+		align-items: center;
 		list-style: none;
 
-		height: 25px;
+		height: 40px;
 		width: 500px;
 
 		#left,
@@ -57,12 +70,10 @@ export const Nav = styled.nav`
 
 			li a,
 			button {
-				transition: all 0.3s ease-in-out;
 				cursor: pointer;
 
 				&:hover {
 					color: #fddb00;
-					transition: all 0.3s ease-in-out;
 				}
 			}
 		}
@@ -70,37 +81,15 @@ export const Nav = styled.nav`
 		#left {
 			display: flex;
 			justify-content: flex-end;
-			margin-right: 30px;
-
-			/* li {
-				opacity: 0;
-				transform: translateX(180px) scale(0);
-				transition: all 0.5s ease;
-			} */
-
-			/* &.open > li {
-				opacity: 1;
-				transform: translateX(-45px) scale(1);
-				transition: all 0.5s ease;
-			} */
+			transform: translateX(-20px);
+			border-radius: 50px 0 0 50px;
+			border-radius: 3px;
 		}
 
 		#right {
 			display: flex;
 			justify-content: flex-start;
-			margin-left: 30px;
-
-			/* li {
-				opacity: 0;
-				transform: translateX(-180px) scale(0);
-				transition: all 0.5s ease;
-			} */
-
-			/* &.open > li {
-				opacity: 1;
-				transform: translateX(45px) scale(1);
-				transition: all 0.5s ease;
-			} */
+			transform: translateX(20px);
 		}
 
 		li {
@@ -124,5 +113,7 @@ export const Nav = styled.nav`
 	}
 	.wrap {
 		display: flex;
+		align-items: center;
+		height: 30px;
 	}
 `
