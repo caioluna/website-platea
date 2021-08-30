@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { useLocation, Route, matchPath } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import { NavLink } from 'react-router-dom'
