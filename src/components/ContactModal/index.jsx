@@ -115,32 +115,36 @@ export default function ContactModal({ isOpen, onRequestClose }) {
 							Faça o seu projeto com a Platea.
 						</p>
 
-						<form action='POST'>
-							<label htmlFor=''>
+						<form action='POST' name='contact' netlify>
+							<label>
 								<span className='icon'>
 									<MdPerson />
 								</span>
-								<input type='text' placeholder='Qual o seu nome?' />
+								<input name='name' type='text' placeholder='Qual o seu nome?' />
 							</label>
-							<label htmlFor=''>
+							<label>
 								<span className='icon'>
 									<MdEmail />
 								</span>
-								<input type='text' placeholder='Seu e-mail?' />
+								<input name='email' type='text' placeholder='Seu e-mail?' />
 							</label>
-							<label htmlFor=''>
+							<label>
 								<span className='icon'>
 									<MdPhone />
 								</span>
-								<input type='text' placeholder='E o seu telefone?' />
+								<input
+									name='telephone'
+									type='text'
+									placeholder='E o seu telefone?'
+								/>
 							</label>
-							<label htmlFor=''>
+							<label>
 								<span className='icon'>
 									<MdChat />
 								</span>
 								<textarea
-									name=''
-									id=''
+									name='message'
+									id='message'
 									cols='30'
 									rows='4'
 									placeholder='Conta pra gente o que você precisa...'
