@@ -113,8 +113,25 @@ export default function ContactModal({ isOpen, onRequestClose }) {
 							Vem criar com a gente!
 							<br />
 							Faça o seu projeto com a Platea.
+							<br />
+							<br />É só enviar um e-mail e começamos uma conversa sobre o seu
+							projeto!
 						</p>
 
+						<p className='email'>
+							<span>
+								{`Luís Perri - `}
+								<a href='mailto:luis@platea.com.br'>luis@platea.com.br</a>
+							</span>
+							<span>
+								{`Solange Perri - `}
+								<a href='mailto:solperri@platea.com.br'>
+									solperri@platea.com.br
+								</a>
+							</span>
+						</p>
+
+						{/* 
 						<form action='POST' name='contact' netlify>
 							<label>
 								<span className='icon'>
@@ -151,12 +168,12 @@ export default function ContactModal({ isOpen, onRequestClose }) {
 								></textarea>
 							</label>
 							<button type='submit'>Agora é só enviar!</button>
-						</form>
+						</form> */}
 
 						<div className='or'>
-							<hr />
+							{/* <hr /> */}
 							<span>ou</span>
-							<hr />
+							{/* <hr /> */}
 						</div>
 
 						<div className='call'>

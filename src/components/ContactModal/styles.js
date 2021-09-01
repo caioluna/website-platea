@@ -64,7 +64,17 @@ export const ContactBox = styled(motion.div)`
 				font-size: 16px;
 				line-height: 24px;
 
-				margin: 20px auto 40px;
+				margin: 20px auto;
+			}
+		}
+
+		.email {
+			span {
+				display: block;
+				a {
+					text-decoration: underline;
+					color: #fddb00;
+				}
 			}
 		}
 
@@ -152,7 +162,7 @@ export const ContactBox = styled(motion.div)`
 
 			a {
 				text-decoration: none;
-				color: #fff;
+				color: #fddb00;
 				font-family: 'Poppins', sans-serif;
 				font-size: 18px;
 			}
