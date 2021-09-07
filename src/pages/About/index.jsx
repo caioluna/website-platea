@@ -6,6 +6,27 @@ import GeoForm from '../../components/GeoForm'
 
 import { Container, Content, Text } from './styles'
 
+const container = {
+	animate: {
+		transition: {
+			delayChildren: 0.3,
+			staggerChildren: 0.1,
+		},
+	},
+}
+
+const textVariants = {
+	initial: { opacity: 0, x: 300 },
+	animate: {
+		opacity: 1,
+		x: 0,
+		transition: {
+			type: 'spring',
+			duration: 1,
+		},
+	},
+}
+
 export default function About() {
 	return (
 		<Container
@@ -25,30 +46,27 @@ export default function About() {
 					A agência
 				</motion.h1>
 				<Text>
-					<div className='agency-text'>
-						<motion.p
-							initial={{ opacity: 0, x: 300 }}
-							animate={{ opacity: 1, x: 0 }}
-							transition={{ delay: 0.5, type: 'spring', duration: 0.5 }}
-						>
+					<motion.div
+						className='agency-text'
+						variants={container}
+						initial='initial'
+						animate='animate'
+					>
+						<motion.p variants={textVariants}>
 							Cativar mentes e corações. Entreter, seduzir, engajar. Nosso
 							objetivo aqui é ajudar você, sua marca, seu serviço, seu produto a
 							conquistar a plateia. Vem fazer bonito e ganhar aplausos com a
 							gente.
 						</motion.p>
 						<br />
-						<motion.p
-							initial={{ opacity: 0, x: 300 }}
-							animate={{ opacity: 1, x: 0 }}
-							transition={{ delay: 0.6, type: 'spring', duration: 0.5 }}
-						>
+						<motion.p variants={textVariants}>
 							Somos uma agência de comunicação e promoções especializada em
 							criação e gestão de logística de press kits, brindes e criação de
 							campanhas visuais. Nosso comprometimento é com o seu sucesso e por
 							isso trabalhamos com seriedade, prezando sempre pela honestidade
 							nas nossas relações.
 						</motion.p>
-					</div>
+					</motion.div>
 				</Text>
 			</Content>
 			<GeoForm />

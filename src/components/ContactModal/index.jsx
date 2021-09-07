@@ -4,9 +4,41 @@ import { motion } from 'framer-motion'
 
 import { ContactBox } from './styles'
 
-import { MdPerson, MdEmail, MdPhone, MdChat } from 'react-icons/md'
+// import { MdPerson, MdEmail, MdPhone, MdChat } from 'react-icons/md'
 
 Modal.setAppElement('#root')
+
+const titleVariants = {
+	initial: { opacity: 0, y: 300 },
+	animate: {
+		opacity: 1,
+		y: 0,
+		transition: {
+			type: 'spring',
+			duration: 1,
+		},
+	},
+}
+
+const container = {
+	animate: {
+		transition: {
+			staggerChildren: 0.3,
+		},
+	},
+}
+
+// const textVariants = {
+// 	initial: { opacity: 0, x: 300 },
+// 	animate: {
+// 		opacity: 1,
+// 		x: 0,
+// 		transition: {
+// 			type: 'spring',
+// 			// duration: 1,
+// 		},
+// 	},
+// }
 
 export default function ContactModal({ isOpen, onRequestClose }) {
 	return (
@@ -108,14 +140,24 @@ export default function ContactModal({ isOpen, onRequestClose }) {
 						</svg>
 					</button>
 					<div className='form-area'>
-						<h1>Contato</h1>
-						<p>
-							Vem criar com a gente!
+						<motion.h1
+							variants={titleVariants}
+							intial='initial'
+							animate='animate'
+						>
+							Contato
+						</motion.h1>
+
+						<p variants={container} initial='initial' animate='animate'>
+							<span>Vem criar com a gente!</span>
 							<br />
-							Faça o seu projeto com a Platea.
+							<span>Faça o seu projeto com a Platea.</span>
 							<br />
-							<br />É só enviar um e-mail e começamos uma conversa sobre o seu
-							projeto!
+							<br />
+							<span>
+								É só enviar um e-mail e começamos uma conversa sobre o seu
+								projeto!
+							</span>
 						</p>
 
 						<p className='email'>

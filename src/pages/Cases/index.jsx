@@ -7,17 +7,16 @@ import CloseButton from '../../components/CloseButton'
 import GeoForm from '../../components/GeoForm'
 
 import { Container, Content, Header, PhotoContainer } from '../Cases/styles'
+import PageNotFound from '../PageNotFound'
 
 const PHOTOS = gql`
-	query GetPhotos {
+	query {
 		photos {
-			id
+			_id
 			title
+			image
 			description
 			tags
-			image {
-				formats
-			}
 		}
 	}
 `
@@ -89,11 +88,11 @@ const descriptionVariants = {
 
 export default function Cases() {
 	const [show] = useState(false)
-	const { loading, error, data } = useQuery(PHOTOS)
 	const [searchWord, setSearchWord] = useState('')
+	const { loading, error, data } = useQuery(PHOTOS)
 
 	if (loading) return <Loading />
-	if (error) return console.log(error)
+	if (error) return <PageNotFound />
 
 	return (
 		<Container
@@ -135,14 +134,11 @@ export default function Cases() {
 						.map(photo => {
 							return (
 								<motion.div
-									key={photo.id}
+									key={photo._id}
 									className='item'
 									variants={photoVariants}
 								>
-									<img
-										src={`https://strapi-3v35.onrender.com${photo.image.formats.small.url}`}
-										alt={photo.title}
-									/>
+									<img src={`${photo.image}`} alt={photo.title} />
 									<motion.div
 										className='hover-container'
 										initial={false}
