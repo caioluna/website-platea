@@ -1,23 +1,25 @@
 import { useState } from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
 import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
-
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client'
-
 import { GlobalStyle } from './styles/global'
 
 import Navbar from './components/Navbar'
-
 import Home from './pages/Home'
 import About from './pages/About'
 import Cases from './pages/Cases'
 import ContactModal from './components/ContactModal'
 import Services from './pages/Services'
-
 import PageNotFound from './pages/PageNotFound'
 
+const APP_ID = 'platea-app-loiaj'
 const client = new ApolloClient({
-	uri: 'https://us-east-1.aws.realm.mongodb.com/api/client/v2.0/app/application-0-sqdza/graphql',
+	uri: `https://platea-strapi.herokuapp.com/graphql`,
+	// uri: `https://realm.mongodb.com/api/client/v2.0/app/${APP_ID}/graphql`,
+	// headers: {
+	// 	Authorization:
+	// 		'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBsYXRlYSIsImlhdCI6MTYxNzMxMzQyMCwiZXhwIjoxNjQ4ODQ5NDIwLCJhdWQiOiJwbGF0ZWEtYXBwLWxvaWFqIn0.-y9i5bRRtfbMr1w4vY_qNtZO_JrF7cU4pS2cUTri1XA',
+	// },
 	cache: new InMemoryCache(),
 })
 
