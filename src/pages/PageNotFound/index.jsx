@@ -70,8 +70,8 @@ export default function PageNotFound() {
 					Não encontramos essa página...
 				</motion.p>
 				<motion.p variants={textVariants}>
-					Que tal voltar para a <Link to='/'>página inicial</Link> e tentar de
-					novo?
+					Que tal voltar para a <Link to='/'>página inicial</Link> e tentar mais
+					tarde?
 				</motion.p>
 			</Content>
 		</Container>

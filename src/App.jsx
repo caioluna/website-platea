@@ -12,14 +12,17 @@ import ContactModal from './components/ContactModal'
 import Services from './pages/Services'
 import PageNotFound from './pages/PageNotFound'
 
-const APP_ID = 'platea-app-loiaj'
 const client = new ApolloClient({
-	uri: `https://platea-strapi.herokuapp.com/graphql`,
-	// uri: `https://realm.mongodb.com/api/client/v2.0/app/${APP_ID}/graphql`,
-	// headers: {
-	// 	Authorization:
-	// 		'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IlBsYXRlYSIsImlhdCI6MTYxNzMxMzQyMCwiZXhwIjoxNjQ4ODQ5NDIwLCJhdWQiOiJwbGF0ZWEtYXBwLWxvaWFqIn0.-y9i5bRRtfbMr1w4vY_qNtZO_JrF7cU4pS2cUTri1XA',
-	// },
+	uri: `https://graphql.contentful.com/content/v1/spaces/1deh8mza5ax6/environments/master`,
+	headers: {
+		AcceptEncoding: 'gzip, deflate, br',
+		Accept: 'application/json',
+		Connection: 'keep-alive',
+		ContentType: 'application/json',
+		Origin: 'https://contentful-graphql-playground-app.netlify.app',
+		DNT: '1',
+		Authorization: 'Bearer DLNj3PG5fftvUUqcCQWBwVyiXKbTZBqKvU2CxQPm1Po',
+	},
 	cache: new InMemoryCache(),
 })
 

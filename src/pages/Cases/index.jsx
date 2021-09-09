@@ -12,7 +12,7 @@ import PageNotFound from '../PageNotFound'
 const PHOTOS = gql`
 	query {
 		photos {
-			_id
+			id
 			title
 			image
 			description
