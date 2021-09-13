@@ -6,11 +6,38 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // Then we give our schema to the builder and provide the result to Sanity
 export default createSchema({
-  // We name our schema
-  name: 'default',
-  // Then proceed to concatenate our document type
-  // to the ones provided by any plugins that are installed
-  types: schemaTypes.concat([
-    /* Your types here! */
-  ]),
+	// We name our schema
+	name: 'photos',
+	// Then proceed to concatenate our document type
+	// to the ones provided by any plugins that are installed
+	types: schemaTypes.concat([
+		/* Your types here! */
+		{
+			title: 'Photo',
+			name: 'photo',
+			type: 'document',
+			fields: [
+				{
+					title: 'Title',
+					name: 'title',
+					type: 'string',
+				},
+				{
+					title: 'Image',
+					name: 'image',
+					type: 'image',
+				},
+				{
+					title: 'Tags',
+					name: 'tags',
+					type: 'string',
+				},
+				{
+					title: 'Description',
+					name: 'description',
+					type: 'string',
+				},
+			],
+		},
+	]),
 })

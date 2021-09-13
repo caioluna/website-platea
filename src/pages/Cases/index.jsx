@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { gql, useQuery } from '@apollo/client'
+import sanityClient from '../../../src/client.js'
 
 import Loading from '../../components/Loading'
 import CloseButton from '../../components/CloseButton'
@@ -9,17 +10,17 @@ import GeoForm from '../../components/GeoForm'
 import { Container, Content, Header, PhotoContainer } from '../Cases/styles'
 import PageNotFound from '../PageNotFound'
 
-const PHOTOS = gql`
-	query {
-		photos {
-			id
-			title
-			image
-			description
-			tags
-		}
-	}
-`
+// const PHOTOS = gql`
+// 	query {
+// 		photos {
+// 			id
+// 			title
+// 			image
+// 			description
+// 			tags
+// 		}
+// 	}
+// `
 
 const container = {
 	show: {
@@ -89,10 +90,60 @@ const descriptionVariants = {
 export default function Cases() {
 	const [show] = useState(false)
 	const [searchWord, setSearchWord] = useState('')
-	const { loading, error, data } = useQuery(PHOTOS)
+	const [isLoading, setIsLoading] = useState(true)
+	const [photo, setPhoto] = useState([])
+	// const { loading, error, data } = useQuery(PHOTOS)
+	useEffect(() => {
+		try {
+			fetchPhotos()
+		} catch (error) {
+			return <PageNotFound />
+		}
+		// sanityClient
+		// 	.fetch(
+		// 		`
+		// 			*[_type == 'photo'] {
+		// 				_id,
+		// 				title,
+		// 				image {
+		// 					asset-> {
+		// 						_id,
+		// 						url
+		// 					}
+		// 				},
+		// 				tags,
+		// 				description
+		// 			}
+		// 		`
+		// 	)
+		// 	.then(data => setPhoto(data))
+		// 	.catch(console.error)
+	}, [])
 
-	if (loading) return <Loading />
-	if (error) return <PageNotFound />
+	const fetchPhotos = async () => {
+		const response = await sanityClient.fetch(
+			`
+					*[_type == 'photo'] {
+						_id,
+						title,
+						image {
+							asset-> {
+								_id,
+								url
+							}
+						},
+						tags,
+						description
+					}
+				`
+		)
+		const data = await response
+		setPhoto(data)
+		setIsLoading(false)
+	}
+
+	if (isLoading) return <Loading />
+	// if (error) return <PageNotFound />
 
 	return (
 		<Container
@@ -126,7 +177,7 @@ export default function Cases() {
 					</motion.h1>
 				</div>
 				<PhotoContainer variants={container} initial='hidden' animate='show'>
-					{data.photos
+					{photo
 						.filter(value => {
 							if (searchWord === '') return value
 							return value.tags.includes(searchWord.toLowerCase())
@@ -138,7 +189,7 @@ export default function Cases() {
 									className='item'
 									variants={photoVariants}
 								>
-									<img src={`${photo.image}`} alt={photo.title} />
+									<img src={`${photo.image.asset.url}`} alt={photo.title} />
 									<motion.div
 										className='hover-container'
 										initial={false}
