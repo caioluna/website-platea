@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
 import React, { useEffect, useState } from 'react'
-import { gql, useQuery } from '@apollo/client'
 import sanityClient from '../../../src/client.js'
 
 import Loading from '../../components/Loading'
@@ -9,18 +8,6 @@ import GeoForm from '../../components/GeoForm'
 
 import { Container, Content, Header, PhotoContainer } from '../Cases/styles'
 import PageNotFound from '../PageNotFound'
-
-// const PHOTOS = gql`
-// 	query {
-// 		photos {
-// 			id
-// 			title
-// 			image
-// 			description
-// 			tags
-// 		}
-// 	}
-// `
 
 const container = {
 	show: {
@@ -92,32 +79,13 @@ export default function Cases() {
 	const [searchWord, setSearchWord] = useState('')
 	const [isLoading, setIsLoading] = useState(true)
 	const [photo, setPhoto] = useState([])
-	// const { loading, error, data } = useQuery(PHOTOS)
+
 	useEffect(() => {
 		try {
 			fetchPhotos()
 		} catch (error) {
 			return <PageNotFound />
 		}
-		// sanityClient
-		// 	.fetch(
-		// 		`
-		// 			*[_type == 'photo'] {
-		// 				_id,
-		// 				title,
-		// 				image {
-		// 					asset-> {
-		// 						_id,
-		// 						url
-		// 					}
-		// 				},
-		// 				tags,
-		// 				description
-		// 			}
-		// 		`
-		// 	)
-		// 	.then(data => setPhoto(data))
-		// 	.catch(console.error)
 	}, [])
 
 	const fetchPhotos = async () => {
@@ -143,7 +111,6 @@ export default function Cases() {
 	}
 
 	if (isLoading) return <Loading />
-	// if (error) return <PageNotFound />
 
 	return (
 		<Container
