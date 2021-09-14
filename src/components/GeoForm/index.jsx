@@ -49,4 +49,15 @@ const Background = styled.div`
 		right: -710px;
 		bottom: -400px;
 	}
+
+	@media (max-width: 460px) {
+		.geoform.left {
+			height: 650px;
+			top: 100px;
+		}
+
+		.geoform.right {
+			display: none;
+		}
+	}
 `

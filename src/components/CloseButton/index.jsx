@@ -24,6 +24,7 @@ const Close = styled.button`
 	justify-content: center;
 	align-items: center;
 	background: none;
+	z-index: 99;
 
 	a {
 		display: flex;

@@ -48,6 +48,23 @@ export const Content = styled.div`
 			z-index: 999;
 		}
 	}
+
+	@media (max-width: 460px) {
+		.logo {
+			margin-bottom: 40px;
+			button {
+				img {
+					width: 45px;
+				}
+			}
+		}
+		.button-bg-animate {
+			display: none;
+		}
+		nav {
+			display: none;
+		}
+	}
 `
 
 export const Nav = styled.nav`
@@ -115,5 +132,55 @@ export const Nav = styled.nav`
 		display: flex;
 		align-items: center;
 		height: 30px;
+	}
+
+	@media (max-width: 460px) {
+		display: none;
+	}
+`
+
+export const MobileNav = styled.div`
+	display: none;
+	position: absolute;
+	bottom: 50px;
+
+	.overlay {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		background-color: rgba(0, 0, 0, 0.8);
+		z-index: -1;
+	}
+
+	ul {
+		width: 100vw;
+		padding: 50px 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		li {
+			text-align: center;
+			margin: 10px auto;
+
+			a,
+			.mobile-button {
+				display: block;
+				width: 200px;
+				padding: 15px 30px;
+
+				margin: 0 auto;
+				font-size: 22px;
+				background: #202020;
+				border-radius: 6px;
+				color: #fff;
+			}
+		}
+	}
+
+	@media (max-width: 460px) {
+		display: flex;
 	}
 `

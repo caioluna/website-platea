@@ -47,22 +47,15 @@ export default function ContactModal({ isOpen, onRequestClose }) {
 			onRequestClose={onRequestClose}
 			className='ContactBox'
 			overlayClassName='react-modal-overlay'
-			as={motion.div}
-			inicital={{ opacity: 0 }}
-			animate={{ opacity: 1, transition: { duration: 1 } }}
-			exit={{ opacity: 0, transition: { duration: 1 } }}
 		>
 			<ContactBox
 				initial={{ opacity: 0, y: 100 }}
 				animate={{
 					opacity: 1,
 					y: 0,
-					transition: {
-						type: 'spring',
-						duration: 0.8,
-					},
+					transition: { type: 'spring' },
 				}}
-				exit={{ opacity: 0, y: 100 }}
+				exit={{ opacity: 0 }}
 			>
 				<motion.div
 					className='left-side'
@@ -171,6 +164,10 @@ export default function ContactModal({ isOpen, onRequestClose }) {
 									solperri@platea.com.br
 								</a>
 							</span>
+							<span className='call'>
+								{`Ou ligue para nós: `}
+								<a href='tel:+551143282033'>&#40;11&#41; 4328 2033</a>
+							</span>
 						</p>
 
 						{/* 
@@ -211,17 +208,6 @@ export default function ContactModal({ isOpen, onRequestClose }) {
 							</label>
 							<button type='submit'>Agora é só enviar!</button>
 						</form> */}
-
-						<div className='or'>
-							{/* <hr /> */}
-							<span>ou</span>
-							{/* <hr /> */}
-						</div>
-
-						<div className='call'>
-							<h2>Ligue djá!</h2>
-							<a href='tel:+551143282033'>&#40;11&#41; 4328 2033</a>
-						</div>
 					</div>
 				</div>
 			</ContactBox>

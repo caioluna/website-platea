@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import { NavLink } from 'react-router-dom'
-import { Container, Content, Nav } from './styles'
+import { Container, Content, MobileNav, Nav } from './styles'
 
 import plateaCircleLogo from '../../assets/platea_circle_logo.svg'
 
@@ -12,6 +12,42 @@ const menuButtonVariants = {
 		opacity: [1, 0],
 		scale: [1, 1.5],
 		transition: { repeat: Infinity, duration: 1.5, delay: 1 },
+	},
+}
+
+const container = {
+	animate: {
+		transition: {
+			staggerChildren: 0.05,
+			staggerDirection: -1,
+		},
+	},
+	exit: {
+		transition: {
+			staggerChildren: 0.2,
+			staggerDirection: 1,
+		},
+	},
+}
+
+const mobileNavVariants = {
+	initial: {
+		opacity: 0,
+		scale: 0.5,
+	},
+	animate: {
+		opacity: 1,
+		scale: [1.2, 1],
+		transition: {
+			type: 'spring',
+		},
+	},
+	hide: {
+		opacity: 0,
+		transition: {
+			type: 'spring',
+			duration: 3,
+		},
 	},
 }
 
@@ -108,6 +144,51 @@ export default function Navbar({ openModal }) {
 							</div>
 						</ul>
 					</Nav>
+					<AnimatePresence>
+						{isOpen && (
+							<MobileNav
+								as={motion.div}
+								initial={{ opacity: 0 }}
+								animate={{
+									opacity: 1,
+									transition: { type: 'spring' },
+								}}
+								exit={{ opacity: 0 }}
+							>
+								<motion.div
+									className='overlay'
+									initial={{ opacity: 0 }}
+									animate={{ opacity: 1 }}
+								></motion.div>
+								<motion.ul
+									variants={container}
+									initial='initial'
+									animate='animate'
+								>
+									<motion.li variants={mobileNavVariants}>
+										<NavLink to='/about' onClick={() => setOpenMenu(false)}>
+											Sobre
+										</NavLink>
+									</motion.li>
+									<motion.li variants={mobileNavVariants}>
+										<NavLink to='/services' onClick={() => setOpenMenu(false)}>
+											Serviços
+										</NavLink>
+									</motion.li>
+									<motion.li variants={mobileNavVariants}>
+										<NavLink to='/cases' onClick={() => setOpenMenu(false)}>
+											Cases
+										</NavLink>
+									</motion.li>
+									<motion.li variants={mobileNavVariants}>
+										<button className='mobile-button' onClick={openModal}>
+											Contato
+										</button>
+									</motion.li>
+								</motion.ul>
+							</MobileNav>
+						)}
+					</AnimatePresence>
 				</div>
 			</Content>
 		</Container>

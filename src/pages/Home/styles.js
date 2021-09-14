@@ -27,4 +27,15 @@ export const Content = styled.section`
 		left: 165px;
 		width: 150px;
 	}
+
+	@media (max-width: 460px) {
+		.hero-logo {
+			height: 50vh;
+			margin: auto;
+
+			left: 100px;
+			top: 0;
+			bottom: 0;
+		}
+	}
 `

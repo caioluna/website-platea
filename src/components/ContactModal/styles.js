@@ -135,33 +135,12 @@ export const ContactBox = styled(motion.div)`
 			}
 		}
 
-		.or {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-
-			hr {
-				height: 1px;
-				width: 40px;
-				background-color: #fff;
-			}
-
-			span {
-				margin: 26px 15px 18px;
-			}
-		}
-
 		.call {
-			text-align: center;
-
-			h2 {
-				font-size: 18px;
-				line-height: 20px;
-				margin-bottom: 8px;
-			}
+			text-align: left;
+			margin-top: 15px;
 
 			a {
-				text-decoration: none;
+				text-decoration: none !important;
 				color: #fddb00;
 				font-family: 'Poppins', sans-serif;
 				font-size: 18px;

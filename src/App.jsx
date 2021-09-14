@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
-import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
+import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
 import { GlobalStyle } from './styles/global'
 
 import Navbar from './components/Navbar'
@@ -35,11 +35,15 @@ export default function App() {
 				</AnimatePresence>
 			</AnimateSharedLayout>
 
-			<ContactModal
-				isOpen={isContactModalOpen}
-				onRequestClose={handleCloseContactModal}
-				handleCloseContactModal={handleCloseContactModal}
-			/>
+			<AnimatePresence>
+				{isContactModalOpen && (
+					<ContactModal
+						isOpen={isContactModalOpen}
+						onRequestClose={handleCloseContactModal}
+						handleCloseContactModal={handleCloseContactModal}
+					/>
+				)}
+			</AnimatePresence>
 
 			<GlobalStyle />
 		</>
