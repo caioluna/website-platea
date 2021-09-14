@@ -33,9 +33,8 @@ export const Content = styled.section`
 			height: 50vh;
 			margin: auto;
 
-			left: 100px;
-			top: 0;
-			bottom: 0;
+			left: 5%;
+			top: 15%;
 		}
 	}
 `

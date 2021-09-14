@@ -10,7 +10,12 @@ export const Container = styled(motion.main)`
 	width: 100vw;
 	height: 100vh;
 
-	overflow: hidden;
+	overflow-x: hidden;
+
+	@media (max-width: 460px) {
+		padding: 20px;
+		overflow-y: auto;
+	}
 `
 
 export const Content = styled.section`
@@ -29,6 +34,17 @@ export const Content = styled.section`
 		font-family: 'DINAlternateBlack';
 		margin-bottom: 50px;
 	}
+
+	@media (max-width: 460px) {
+		width: 100vw;
+		padding: 20px;
+
+		.page-title {
+			position: static;
+			font-size: 32px;
+			margin-top: 30px;
+		}
+	}
 `
 
 export const Text = styled.div`
@@ -45,6 +61,18 @@ export const Text = styled.div`
 			font-size: 16px;
 			line-height: 30px;
 			color: #fff;
+		}
+	}
+
+	@media (max-width: 460px) {
+		.agency-text {
+			position: static;
+			display: flex;
+			flex-direction: column;
+
+			p {
+				font-size: 18px;
+			}
 		}
 	}
 `

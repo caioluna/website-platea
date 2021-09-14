@@ -67,5 +67,9 @@ export const Container = styled(motion.div)`
 			line-height: 16px;
 			text-align: center;
 		}
+
+		@media (max-width: 460px) {
+			margin-bottom: 20px;
+		}
 	}
 `

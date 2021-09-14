@@ -166,6 +166,11 @@ export default function Navbar({ openModal }) {
 									animate='animate'
 								>
 									<motion.li variants={mobileNavVariants}>
+										<NavLink to='/' onClick={() => setOpenMenu(false)}>
+											Home
+										</NavLink>
+									</motion.li>
+									<motion.li variants={mobileNavVariants}>
 										<NavLink to='/about' onClick={() => setOpenMenu(false)}>
 											Sobre
 										</NavLink>

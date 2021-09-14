@@ -24,6 +24,10 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 14px;
     font-weight: 400;
     overflow-x: hidden;
+
+    @media (max-width: 460px) {
+      padding-bottom: 30px;
+    }
   }
 
   .react-modal-overlay {

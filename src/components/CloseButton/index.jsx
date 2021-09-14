@@ -49,4 +49,8 @@ const Close = styled.button`
 			color: #fddb00;
 		}
 	}
+
+	@media (max-width: 460px) {
+		display: none;
+	}
 `

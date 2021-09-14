@@ -11,9 +11,13 @@ export const Container = styled.div`
 	padding: 10px;
 	z-index: 9999;
 
-	&.scrolling {
+	/* &.scrolling {
 		background-color: #121212;
 		height: 60px;
+	} */
+
+	@media (max-width: 460px) {
+		top: 0;
 	}
 `
 
@@ -50,8 +54,9 @@ export const Content = styled.div`
 	}
 
 	@media (max-width: 460px) {
+		justify-content: flex-end;
+		padding-right: 30px;
 		.logo {
-			margin-bottom: 40px;
 			button {
 				img {
 					width: 45px;
@@ -59,7 +64,7 @@ export const Content = styled.div`
 			}
 		}
 		.button-bg-animate {
-			display: none;
+			width: 65px;
 		}
 		nav {
 			display: none;
@@ -142,7 +147,9 @@ export const Nav = styled.nav`
 export const MobileNav = styled.div`
 	display: none;
 	position: absolute;
-	bottom: 50px;
+	top: 30px;
+	justify-content: center;
+	align-items: center;
 
 	.overlay {
 		position: fixed;
@@ -155,6 +162,12 @@ export const MobileNav = styled.div`
 	}
 
 	ul {
+		position: fixed;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+
 		width: 100vw;
 		padding: 50px 0;
 		display: flex;
@@ -176,6 +189,14 @@ export const MobileNav = styled.div`
 				background: #202020;
 				border-radius: 6px;
 				color: #fff;
+
+				@media (max-width: 320px) {
+					width: 120px;
+					padding: 10px 15px;
+
+					margin: 0 auto;
+					font-size: 18px;
+				}
 			}
 		}
 	}

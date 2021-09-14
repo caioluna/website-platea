@@ -11,6 +11,10 @@ export const Container = styled(motion.section)`
 	align-items: center;
 
 	overflow-x: hidden;
+
+	@media (max-width: 460px) {
+		height: auto;
+	}
 `
 
 export const Content = styled.div`
@@ -36,5 +40,22 @@ export const Content = styled.div`
 		align-items: center;
 
 		grid-template-columns: repeat(4, 1fr);
+	}
+
+	@media (max-width: 460px) {
+		.box-wrapper {
+			flex-direction: column;
+			justify-content: space-between;
+			padding-bottom: 150px;
+		}
+
+		h1 {
+			position: absolute;
+			width: 100px;
+
+			font-size: 32px;
+			top: 50px;
+			left: 20px;
+		}
 	}
 `

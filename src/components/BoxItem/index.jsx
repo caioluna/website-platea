@@ -49,6 +49,7 @@ export default function BoxItem({ icon, description, title, variants }) {
 				initial={false}
 				animate={show ? 'show' : 'hide'}
 				whileHover='show'
+				whileTap='show'
 			>
 				<motion.h4 variants={boxContentVariants}>{title}</motion.h4>
 				<motion.img
