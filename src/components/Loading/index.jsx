@@ -107,4 +107,11 @@ const Container = styled.div`
 	svg {
 		transform: rotate(90deg);
 	}
+
+	@media (max-width: 460px) {
+		svg {
+			transform: none;
+			height: 300px;
+		}
+	}
 `
