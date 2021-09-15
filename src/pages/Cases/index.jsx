@@ -74,7 +74,7 @@ const descriptionVariants = {
 }
 
 export default function Cases() {
-	const [show] = useState(false)
+	const [show, setShow] = useState(false)
 	const [searchWord, setSearchWord] = useState('')
 	const [isLoading, setIsLoading] = useState(true)
 	const [photo, setPhoto] = useState([])
@@ -154,6 +154,7 @@ export default function Cases() {
 									key={photo._id}
 									className='item'
 									variants={photoVariants}
+									onClick={() => setShow(!show)}
 								>
 									<img src={`${photo.image.asset.url}`} alt={photo.title} />
 									<motion.div
@@ -161,7 +162,6 @@ export default function Cases() {
 										initial={false}
 										animate={show ? 'show' : 'hide'}
 										whileHover='show'
-										whileTap='show'
 									>
 										<motion.span
 											className='description'

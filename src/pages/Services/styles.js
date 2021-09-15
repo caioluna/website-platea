@@ -54,7 +54,7 @@ export const Content = styled.div`
 			width: 100px;
 
 			font-size: 32px;
-			top: 50px;
+			top: 10px;
 			left: 20px;
 		}
 	}

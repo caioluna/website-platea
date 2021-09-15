@@ -25,16 +25,17 @@ export const Content = styled.section`
 	.hero-logo {
 		position: absolute;
 		left: 165px;
-		width: 150px;
+		height: 85vh;
 	}
 
 	@media (max-width: 460px) {
 		.hero-logo {
-			height: 50vh;
+			height: 60vh;
 			margin: auto;
 
 			left: 5%;
-			top: 15%;
+			top: 50%;
+			transform: translateY(-50%);
 		}
 	}
 `

@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Switch, Route, useLocation } from 'react-router-dom'
-import { AnimatePresence, AnimateSharedLayout, motion } from 'framer-motion'
+import { AnimatePresence, AnimateSharedLayout } from 'framer-motion'
 import { GlobalStyle } from './styles/global'
 
 import Navbar from './components/Navbar'

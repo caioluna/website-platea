@@ -42,7 +42,7 @@ export const Content = styled.section`
 		.page-title {
 			position: static;
 			font-size: 32px;
-			margin-top: 30px;
+			margin-top: 10px;
 		}
 	}
 `
@@ -71,8 +71,6 @@ export const Text = styled.div`
 			flex-direction: column;
 
 			p {
-				font-size: 18px;
-
 				&:last-child {
 					margin-top: 22px;
 				}

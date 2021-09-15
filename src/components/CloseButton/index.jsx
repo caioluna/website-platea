@@ -9,7 +9,6 @@ export default function CloseButton() {
 		<Close>
 			<NavLink to='/'>
 				<MdHome />
-				{/* <span>HOME</span> */}
 			</NavLink>
 		</Close>
 	)

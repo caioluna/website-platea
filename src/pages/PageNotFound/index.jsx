@@ -128,4 +128,24 @@ const Content = styled(motion.section)`
 		line-height: 30px;
 		color: #fff;
 	}
+
+	@media (max-width: 460px) {
+		width: 100vw;
+		padding: 100px 20px 0;
+
+		text-align: center;
+		align-items: center;
+
+		overflow: hidden;
+
+		span {
+			position: absolute;
+			right: 0;
+			left: 0;
+			top: 80px;
+			text-align: center;
+
+			font-size: 150px;
+		}
+	}
 `

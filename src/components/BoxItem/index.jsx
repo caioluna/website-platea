@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { Container } from './styles'
 
 export default function BoxItem({ icon, description, title, variants }) {
-	const [show] = useState(false)
+	const [show, setShow] = useState(false)
 
 	const showVariants = {
 		hide: {
@@ -49,7 +49,7 @@ export default function BoxItem({ icon, description, title, variants }) {
 				initial={false}
 				animate={show ? 'show' : 'hide'}
 				whileHover='show'
-				whileTap='show'
+				onClick={() => setShow(!show)}
 			>
 				<motion.h4 variants={boxContentVariants}>{title}</motion.h4>
 				<motion.img

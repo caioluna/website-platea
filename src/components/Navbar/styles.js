@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-	position: fixed;
+	position: absolute;
 	bottom: 0;
 	display: flex;
 	justify-content: center;
@@ -10,11 +10,6 @@ export const Container = styled.div`
 	height: 100px;
 	padding: 10px;
 	z-index: 9999;
-
-	/* &.scrolling {
-		background-color: #121212;
-		height: 60px;
-	} */
 
 	@media (max-width: 460px) {
 		top: 0;
@@ -51,21 +46,34 @@ export const Content = styled.div`
 			cursor: pointer;
 			z-index: 999;
 		}
+
+		.mobile-nav-button {
+			display: none;
+			svg {
+				width: 30px;
+				height: 30px;
+				color: #fff;
+			}
+		}
 	}
 
 	@media (max-width: 460px) {
 		justify-content: flex-end;
 		padding-right: 30px;
+
 		.logo {
-			button {
-				img {
-					width: 45px;
-				}
+			.logo-button {
+				display: none;
+			}
+			.mobile-nav-button {
+				display: block;
 			}
 		}
+
 		.button-bg-animate {
-			width: 65px;
+			display: none;
 		}
+
 		nav {
 			display: none;
 		}
@@ -146,7 +154,7 @@ export const Nav = styled.nav`
 
 export const MobileNav = styled.div`
 	display: none;
-	position: absolute;
+	position: relative;
 	top: 30px;
 	justify-content: center;
 	align-items: center;
@@ -157,8 +165,7 @@ export const MobileNav = styled.div`
 		bottom: 0;
 		left: 0;
 		right: 0;
-		background-color: rgba(0, 0, 0, 0.8);
-		z-index: -1;
+		background-color: rgba(0, 0, 0, 0.9);
 	}
 
 	ul {
@@ -182,14 +189,16 @@ export const MobileNav = styled.div`
 			a,
 			.mobile-button {
 				display: block;
-				width: 200px;
-				padding: 15px 30px;
+				width: 160px;
+				height: 50px;
+				line-height: 50px;
+				text-align: center;
 
 				margin: 0 auto;
 				font-size: 22px;
-				background: #202020;
-				border-radius: 6px;
-				color: #fff;
+				background: #fddb00;
+				border-radius: 3px;
+				color: #202020;
 
 				@media (max-width: 320px) {
 					width: 120px;
@@ -200,9 +209,28 @@ export const MobileNav = styled.div`
 				}
 			}
 		}
+
+		.home-menu-button {
+			svg {
+				color: #fddb00;
+			}
+
+			a {
+				width: 35px;
+				height: 35px;
+				padding: 0;
+
+				display: flex;
+				position: absolute;
+				top: 40px;
+				left: 40px;
+
+				background-color: transparent;
+			}
+		}
 	}
 
 	@media (max-width: 460px) {
-		display: flex;
+		display: block;
 	}
 `
