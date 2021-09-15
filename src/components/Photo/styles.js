@@ -4,11 +4,6 @@ export const PhotoItem = styled.div`
 	min-width: 450px;
 	flex: 1;
 	border-radius: 3px;
-	/* overflow: hidden; */
-
-	/* &:hover .description {
-			display: flex;
-		} */
 
 	img {
 		width: 450px;

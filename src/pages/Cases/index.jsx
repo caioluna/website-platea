@@ -37,7 +37,6 @@ const titleVariants = {
 	hidden: {
 		opacity: 0,
 		x: 300,
-		rotate: -90,
 	},
 	show: {
 		opacity: 1,
@@ -162,6 +161,7 @@ export default function Cases() {
 										initial={false}
 										animate={show ? 'show' : 'hide'}
 										whileHover='show'
+										whileTap='show'
 									>
 										<motion.span
 											className='description'

@@ -72,6 +72,10 @@ export const Text = styled.div`
 
 			p {
 				font-size: 18px;
+
+				&:last-child {
+					margin-top: 22px;
+				}
 			}
 		}
 	}

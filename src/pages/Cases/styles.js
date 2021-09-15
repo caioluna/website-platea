@@ -20,6 +20,7 @@ export const Container = styled(motion.main)`
 `
 
 export const Content = styled.section`
+	position: relative;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -27,95 +28,39 @@ export const Content = styled.section`
 
 	height: 100vh;
 	width: 1040px;
+	max-width: 100vw;
 
 	.title-wrapper {
 		position: absolute;
-		width: 1040px;
+		display: flex;
+		width: 300px;
+		height: 50px;
+		transform: rotate(-90deg);
+
+		top: 170px;
+		left: -200px;
 
 		h1 {
-			position: absolute;
-			left: -150px;
-			top: 260px;
 			font-size: 64px;
 			line-height: 40px;
 			text-align: center;
 			font-family: 'DINAlternateBlack', sans-serif;
 			color: #fddb00;
-			transform: rotate(-90deg);
 		}
 	}
 
-	/* .pagination {
-		display: flex;
-		justify-content: center;
-		align-items: center;
+	@media (max-width: 460px) {
+		.title-wrapper {
+			top: 20px;
+			left: 20px;
+			transform: none;
 
-		margin-top: 40px;
-
-		li {
-			list-style: none;
-			min-width: 30px;
-			min-height: 30px;
-
-			display: grid;
-			place-items: center;
-
-			+ li {
-				margin-left: 6px;
-			}
-
-			a {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-
-				cursor: pointer;
-				min-width: 30px;
-				min-height: 30px;
-				padding: 6px 12px;
-				transition: color 0.3s ease-in-out;
-			}
-
-			&:hover {
-				color: #fddb00;
-				transition: color 0.3s ease-in-out;
-
-				path {
-					fill: #fff;
-				}
+			h1 {
+				position: static;
+				font-size: 32px;
 			}
 		}
-
-		.previous {
-			transform: rotate(180deg);
-		}
-
-		.active-page {
-			background-color: #212121;
-			border: 2px solid #fddb00;
-			color: #fddb00;
-			font-weight: 700;
-			border-radius: 3px;
-		}
-
-		.disabled-page {
-			path {
-				fill: #212121;
-				stroke: rgba(255, 255, 255, 0.5);
-				stroke-width: 2px;
-			}
-			&:hover {
-				a {
-					cursor: default;
-				}
-				path {
-					fill: #212121;
-					stroke: rgba(255, 255, 255, 0.5);
-					stroke-width: 2px;
-				}
-			}
-		}
-	} */
+	}
 `
 
 export const Header = styled.header`
@@ -147,6 +92,21 @@ export const Header = styled.header`
 			}
 		}
 	}
+
+	@media (max-width: 460px) {
+		width: 95%;
+
+		margin-top: 120px;
+		justify-content: center;
+
+		label {
+			width: 95%;
+
+			input {
+				width: 100%;
+			}
+		}
+	}
 `
 
 export const PhotoContainer = styled(motion.div)`
@@ -164,11 +124,12 @@ export const PhotoContainer = styled(motion.div)`
 		overflow: hidden;
 		display: flex;
 		justify-content: center;
-		align-items: flex-start;
+		align-items: center;
+		background-color: #fff;
 
 		img {
 			position: absolute;
-			width: 400px;
+			width: 100%;
 		}
 
 		.hover-container {
@@ -244,6 +205,20 @@ export const PhotoContainer = styled(motion.div)`
 						margin-right: 8px;
 					}
 				}
+			}
+		}
+	}
+
+	@media (max-width: 460px) {
+		justify-content: center;
+		gap: 20px;
+
+		.item {
+			width: 20rem;
+			height: 20rem;
+
+			.description {
+				width: 100%;
 			}
 		}
 	}
