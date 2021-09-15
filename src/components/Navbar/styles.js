@@ -173,6 +173,7 @@ export const MobileNav = styled.div`
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
+		list-style: none;
 
 		li {
 			text-align: center;

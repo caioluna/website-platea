@@ -147,4 +147,39 @@ export const ContactBox = styled(motion.div)`
 			}
 		}
 	}
+
+	@media (max-width: 460px) {
+		width: 90%;
+		height: 500px;
+		grid-template-columns: 1fr;
+
+		.left-side {
+			display: none;
+		}
+
+		.right-side {
+			width: 100%;
+			padding: 15px;
+
+			.form-area {
+				width: 100%;
+
+				h1 {
+					font-size: 32px;
+				}
+
+				p {
+					font-size: 18px;
+					line-height: 28px;
+				}
+
+				.email {
+					a {
+						display: block;
+						margin-bottom: 20px;
+					}
+				}
+			}
+		}
+	}
 `
